@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+
+* {
+    box-sizing: border-box;
+    resize: none;
+    font-family: copperplate, sans-serif;
+}
+
+.navbar {
+    background-color:  #1254b9;
+}
+.navbar a {
+    color: #FFD700;
+}
+
+.footer {
+    background-color: #1254b9; 
+    color: #FFD700; 
+    text-align: center;
+    padding: 20px;
+}
+

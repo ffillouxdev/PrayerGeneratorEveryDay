@@ -1,0 +1,28 @@
+main{
+    height: 100vh;
+}
+
+h1 {
+    color: #FFD700;;
+    text-align: center;
+}
+
+.central-container {
+    display: flex;
+    background-color: #fff;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-top: -50px;
+}
+
+#jerusalemLogo {
+    max-width: 250px;
+    max-height: 250px;
+}
+
+#image_shower {
+    max-width: 400px;
+    max-height: 400px;
+}

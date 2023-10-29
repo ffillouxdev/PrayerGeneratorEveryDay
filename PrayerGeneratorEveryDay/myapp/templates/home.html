@@ -1,4 +1,17 @@
-{%extends "base.html"%} {%block title%}Home Page{%endblock%}
-{%block content%}
-<p>this is the home page</p>
-{%endblock%}
+{% extends "base.html" %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}?{% now 'U' %}">
+<!--<script src="{% static 'js/random_Images.js' %}?{% now 'U' %}"></script>-->
+{% endblock %}
+{% block content %}
+<main>
+    <h1>Recevez votre prière quotidienne 🙏</h1>
+    <div class="central-container">
+        <div class="prayerGenerator">
+            <img src="{{ randomImg.img.url }}" alt="Image de prière" id="prayerImage">
+            <p>{{ prayer.prayer_text }}</p>
+        </div>
+    </div>
+</main>
+{% endblock %}
