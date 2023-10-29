@@ -1,6 +1,7 @@
 from django.db import models
 import datetime
 from django.utils import timezone
+from django.templatetags.static import static
 
 
 class Prayer(models.Model):
@@ -10,5 +11,9 @@ class Prayer(models.Model):
     
 class RandomImg(models.Model):
     img = models.ImageField(upload_to='assets/')
+    
+    def img_url(self):
+        return static(self.img.name)
+    
     def __str__(self):
         return self.img.name
