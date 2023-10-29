@@ -1,41 +1,38 @@
-main{
+main {
     height: 100vh;
+    background: url('/static/assets/bg.gif') no-repeat center center fixed;
+    -webkit-background-size:cover;
+    -moz--background-size:cover;
+    -o--background-size:cover;
+    background-size: cover;
 }
 
 h1 {
-    color: #FFD700;;
+    color: #FFD700;
     text-align: center;
 }
 
 .central-container {
-    display: flex;
-    background-color: #fff;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    margin-top: -50px;
+    margin-top: 2%;
 }
 
-#jerusalemLogo {
-    max-width: 250px;
-    max-height: 250px;
+.prayerGenerator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 #prayerImage {
-    max-width: 500px;
-    max-height: 500px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    max-width: 400px;
+    max-height: 400px;
     margin-top: 20px;
 }
 
-p#prayertext { 
+p#prayertext {
     text-align: center;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
-    color: #000;
+    color: #FFFFFF;
     margin-top: 20px;
 }
-    
