@@ -4,11 +4,12 @@
 * {
     box-sizing: border-box;
     resize: none;
-    font-family: copperplate, sans-serif;
+    font-family: 'Inika';
 }
 
 .navbar {
     background-color:  #1254b9;
+    height: 75px;
 }
 .navbar a {
     color: #FFD700;
