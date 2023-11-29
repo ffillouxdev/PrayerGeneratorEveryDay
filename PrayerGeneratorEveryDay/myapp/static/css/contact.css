@@ -1,0 +1,130 @@
+@media(min-width: 500px){
+    .contact-section {
+        height: 70vh;
+        width: 100%;
+        background: url(/static/assets/bg1.jpg) no-repeat center center;
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content : center;
+    }
+    
+    .contact-section h1 {
+        font-size: 40px;
+        color: #ffffff;
+        text-shadow: 0 0 10px #000000;
+    }
+
+    .contact-section p {
+        font-size: 20px;
+        color: #ffffff;
+        text-shadow: 0 0 10px #000000;
+        width: 20%;
+        height: 5%;
+        text-align: center;
+    }
+
+    .infos-strip {
+        background-color: #FFD700;
+        height: 15vh;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .info {
+        height: 30vh;
+        width: 20vw;
+        background-color: #ccc;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .info img {
+        margin-top: 5%;
+        height: 60px;
+        width: 50px;
+    }
+
+    .info #email-icon {
+        height: 60px;
+        width: 80px;
+    }
+
+    .contact-form-section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 70vh;
+        width: 100%;
+    }
+
+    .form-contact {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height:40vh ;
+        width: 70%;
+        background-color: #FFD700;
+        margin-right: 5%;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .infos-form{
+        margin-left: 20px;
+        padding-right: 5px;
+    }
+
+    .top-form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .top-form label {
+        margin-bottom: 5px;
+    }
+
+    .top-form input {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .bottom-form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .bottom-form label {
+        margin-bottom: 5px;
+    }
+
+    .form-textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        height: 10vh;
+    }
+
+    .form-button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .form-button:hover {
+        background-color: #45a049;
+    }
+}

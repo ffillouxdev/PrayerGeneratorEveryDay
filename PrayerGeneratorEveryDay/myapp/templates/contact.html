@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/contact.css' %}?{% now 'U' %}">
+{% endblock %}
+{% block content %}
+<div class="contact-section">
+    <h1>Besoin d’aide ?</h1>
+    <p>Vous rencontrer un problème, vous pouvez nous contacter avec les informations ci-dessous.</p>
+</div>
+<div class="infos-strip">
+    <div class="info phone">
+        <img src="{%static 'assets/phone.png' %}" alt="phone icon">
+        <h3>Numéro de téléphone</h3>
+        <p>+33 9 99 99 99</p>
+    </div>
+    <div class="info email">
+        <img src="{%static 'assets/email.png' %}" alt="email icon" id="email-icon">
+        <h3>Email</h3>
+        <p>deplacementdoux@email.fr</p>
+    </div>
+    <div class="info location">
+        <img src="{%static 'assets/location.png' %}" alt="location icon">
+        <h3>Localisation</h3>
+        <p>1 Rue de la Technologie, 69100 Villeurbanne</p>
+    </div>
+</div>
+<div class="contact-form-section">
+    <div class="infos-form">
+        <h2>Envoyez-nous un message !</h2>
+        <p>Vous avez rencontré un problème, vous avez besoin d’aide, une idée à nous proposer ou juste un avis sur notre site ? Vous pouvez nous envoyer un message en remplissant le formulaire ci-dessous.</p>
+    </div>
+    <div class="form-contact">
+        <div class="top-form">
+            <label for="name">Nom</label>
+            <input type="text" name="name" id="name" class="form-input" required>
+            
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" class="form-input" required>
+        </div>
+        
+        <div class="bottom-form">
+            <label for="message">Message</label>
+            <textarea name="message" id="textMessage" class="form-textarea" cols="30" rows="10" required></textarea>
+            
+            <button type="submit" class="form-button">Envoyer</button>
+        </div>
+    </div>
+    
+</div>
+</div>
+
+{% endblock %}
