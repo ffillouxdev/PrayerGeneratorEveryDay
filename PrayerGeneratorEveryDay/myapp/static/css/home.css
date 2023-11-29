@@ -218,9 +218,7 @@
 
 
 @media screen and (min-width: 500px) and (max-height: 820px){
-
-
-    .first-section {
+     .first-section {
         display: flex;
         flex-direction: row;
         align-items: center;
