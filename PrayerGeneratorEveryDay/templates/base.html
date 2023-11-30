@@ -18,13 +18,13 @@
                 <div class="navbarNav">
                     <ul>
                         <li class="nav-item 1">
-                            <a class="nav-link" href="/">Accueil</a>
+                            <a class="nav-link" href="{% url 'home' %}">Accueil</a>
                         </li>
-                        <li class="nav-item  2">
-                            <a class="nav-link" href="#">À Propos</a>
+                        <li class="nav-item 2">
+                            <a class="nav-link" href="{% url 'about' %}">A propos</a>
                         </li>
                         <li class="nav-item 3">
-                            <a class="nav-link" href="contact/">Contact</a>
+                            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
                         </li>
                     </ul>
                 </div>
