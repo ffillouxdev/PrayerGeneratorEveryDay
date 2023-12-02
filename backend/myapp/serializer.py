@@ -9,4 +9,5 @@ class PrayerSerializer(serializers.ModelSerializer):
 class RandomImgSerializer(serializers.ModelSerializer):
     class Meta:
         model = RandomImg
-        fields = ['id', 'img']
+        fields = ['id', 'img_url']
+    

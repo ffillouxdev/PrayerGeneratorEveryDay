@@ -21,9 +21,10 @@ class PrayerView(APIView):
         
 class RandomImgView(APIView):
     def get(self, request):
-        output = [{"id": img.id, "img": img.img_url()} 
-                  for img in RandomImg.objects.all()]
+        output = [{"id": randomImg.id, "img_url": randomImg.img_url.url} 
+                  for randomImg in RandomImg.objects.all()]
         return Response(output)
+
     def post(self, request):
         serializer = RandomImgSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):

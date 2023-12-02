@@ -11,10 +11,6 @@ class Prayer(models.Model):
         return self.prayer_text
     
 class RandomImg(models.Model):
-    img = models.ImageField(upload_to='assets/')
-    
-    def img_url(self):
-        return static(self.img.name)
-    
+    img_url = models.ImageField(upload_to='assets/')
     def __str__(self):
-        return self.img.name
+        return str(self.img_url)

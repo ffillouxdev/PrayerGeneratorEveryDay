@@ -1,5 +1,4 @@
-import '../styles/contact.css';
-
+import '../styles/contact.scss';
 
 // Importing the components
 import Head from '../components/head';
@@ -19,7 +18,6 @@ export default function Contact() {
         <>
             <Head />
             <Navbar />
-
             <div className="contact-section">
                 <h1>Besoin d’aide ?</h1>
                 <p>Vous rencontrez un problème, vous pouvez nous contacter avec les informations ci-dessous.</p>
@@ -65,7 +63,6 @@ export default function Contact() {
                     </div>
                 </div>
             </div>
-
             <Footer />
         </>
     );

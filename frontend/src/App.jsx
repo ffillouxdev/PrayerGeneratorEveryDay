@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React from 'react';
-import './styles/App.css';  // Path: frontend/src/App.css
+import './styles/App.scss';  // Path: frontend/src/App.css
 
 // Importing the pages components
 import { BrowserRouter, Routes, Route } from 'react-router-dom';

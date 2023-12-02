@@ -4,8 +4,8 @@ import React from "react";
 
 function Footer() {
     return (
-        <footer class="footer">
-            <div class="container">
+        <footer className="footer">
+            <div className="container">
                 <p>&copy; 2023 PrayerGeneratorEverDay - Tous droits réservés</p>
             </div>
         </footer>

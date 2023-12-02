@@ -5,23 +5,24 @@ function Navbar() {
     return (
         <header>
           <nav>
-              <div class="container">
+              <div className="container">
                   <h1>PrayerGeneratorEverDay</h1>
-                  <div class="navbarNav">
+                  <div className="navbarNav">
                       <ul>
-                          <li class="nav-item 1">
-                              <a class="nav-link" href="/">Accueil</a>
+                          <li className="nav-item 1">
+                              <a className="nav-link" href="/">Accueil</a>
                           </li>
-                          <li class="nav-item 2">
-                              <a class="nav-link" href="/about">A propos</a>
+                          <li className="nav-item 2">
+                              <a className="nav-link" href="/about">A propos</a>
                           </li>
-                          <li class="nav-item 3">
-                              <a class="nav-link" href="/contact">Contact</a>
+                          <li className="nav-item 3">
+                              <a className="nav-link" href="/contact">Contact</a>
                           </li>
                       </ul>
                   </div>
               </div>
           </nav>
+          <hr />    
         </header>
     );
 }

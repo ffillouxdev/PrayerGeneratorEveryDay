@@ -3,31 +3,37 @@ import axios from 'axios';
 
 function Content() {
   const [details, setDetails] = useState([]);
+  const [randomIndex, setRandomIndex] = useState(null);
+
 
   useEffect(() => {
     axios.get('http://127.0.0.1:8000/')
       .then(res => {
-        console.log("Data from API:", res.data);
+        // stocker les informations dans un tableau
         setDetails(res.data);
+
+        // Génére un index aléatoire
+        const randomIndex = Math.floor(Math.random() * res.data.length);
+        setRandomIndex(randomIndex);
+
       })
       .catch(err => {
         console.error(err);
       });
   }, []);
-  
-    console.log("Details:", details);
     return (
-        <main className="content">
-            <hr />
-            {details.map((output, id) => (
-            <div key={id} className="data-item">
-                <h2>{output.prayer_text}</h2>
-                <img src={output.img} alt={`Prayer Image ${id}`} />
+      
+      // afficher qu'une seule prière du tableau
+      <main className="content">
+        {randomIndex !== null && (
+            <div key={randomIndex}>
+                <img src={details[randomIndex].img_url} alt={`Prayer Image ${randomIndex}`} />
+                <p>{details[randomIndex].prayer_text}</p>
             </div>
-            ))}
-        </main>
+        )}
+      </main>
     );
-
 }
 
 export default Content;
+
