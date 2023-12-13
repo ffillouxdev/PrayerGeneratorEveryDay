@@ -1,0 +1,97 @@
+:root {
+    /* Colors */
+    --color-primary: #1a73e8;
+    --color-primary-hover: #1669e2;
+    --color-primary-active: #145cd6;
+    --color-primary-disabled: #c2d5f6;
+    --color-secondary: #fbbc05;
+    --color-secondary-hover: #fbbc05;
+    --color-secondary-active: #fbbc05;
+    --color-secondary-disabled: #fbbc05;
+    --color-error: #d93025;
+    --color-error-hover: #d93025;
+    --color-error-active: #d93025;
+    --color-error-disabled: #d93025;
+
+
+    .center {
+        text-align: center;
+    }
+    
+    .bold {
+        font-weight: bold;
+        font-size: 35px;
+        color: #d93025;
+    }
+}
+
+
+/* animation slideIn */
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideTopToBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(-60px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideBottomToTop {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes opacity {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideLeftToRight {
+    0% {
+      opacity: 0;
+      transform: translateX(-60px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+}
+
+@keyframes slideRightToLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(60px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+}

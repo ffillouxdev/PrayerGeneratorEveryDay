@@ -1,11 +1,12 @@
 import axios from 'axios';
 import React from 'react';
 import './styles/App.scss';  // Path: frontend/src/App.css
+import './styles/VarGlobal.scss'; // Path: frontend/src/VarGlobal.scss
 
 // Importing the pages components
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home'; // Path: frontend/src/pages/Home.jsx
-import About from './pages/About'; // Path: frontend/src/pages/About.jsx
+import Your_space from './pages/Your-space'; // Path: frontend/src/pages/Your-space.jsx
 import Contact from './pages/Contact'; // Path: frontend/src/pages/Contact.jsx
 
 // Importing the components elements
@@ -46,7 +47,7 @@ class App extends React.Component {
         <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/Your-space" element={<Your_space />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
         </BrowserRouter>

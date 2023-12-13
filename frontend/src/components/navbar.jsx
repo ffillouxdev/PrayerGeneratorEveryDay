@@ -13,7 +13,7 @@ function Navbar() {
                               <a className="nav-link" href="/">Accueil</a>
                           </li>
                           <li className="nav-item 2">
-                              <a className="nav-link" href="/about">A propos</a>
+                              <a className="nav-link" href="/Your-space">Votre espace</a>
                           </li>
                           <li className="nav-item 3">
                               <a className="nav-link" href="/contact">Contact</a>
