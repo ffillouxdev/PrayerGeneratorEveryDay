@@ -18,9 +18,9 @@ function Footer() {
                     <a href="/Contact">Contact</a>
                 </div>
                 <div className="politics-div">
-                    <a href="">Privacy policy</a>
-                    <a href="">Terms & Conditions</a>
-                    <a href="">Partners</a>
+                    <a href="/Privacy-policy">Privacy policy</a>
+                    <a href="/Terms">Terms & Conditions</a>
+                    <a href="/Partners">Partners</a>
                 </div>
             </div>
             <hr/>
