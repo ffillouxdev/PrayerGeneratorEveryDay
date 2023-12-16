@@ -1,7 +1,7 @@
 // Dans le fichier frontend/src/components/index.js
-import Head from '../components/head';
-import Navbar from '../components/navbar';
-import Footer from '../components/footer';
+import Head from '../components/Head';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import Content from '../components/Content';
 import TextBox from '../components/TextBox';
 
@@ -16,14 +16,6 @@ import pauseButton from '../assets/pause.png';
 import rightButton from '../assets/right.png';
 import defaultMusicIcon from '../assets/jesus.png';
 
-
-const YourParentComponent = () => {
-    // Define or fetch the values of nom_chant and image_chant
-    const nom_chant = "Your Chant Name";
-    const image_chant = "path/to/your/image.png";
-
-    return <Home nom_chant={nom_chant} image_chant={image_chant} />;
-};
 
 export default function Home({ nom_chant, image_chant }) {
     return (

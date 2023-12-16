@@ -1,0 +1,29 @@
+main {
+    .privacy-policy {
+        text-align: justify;
+        margin: 2%;
+        height: 100vh;
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #1254b9;
+            text-align: center;
+        }
+
+        hr {
+            border: 2px solid #1254b9;
+            margin: 0;
+            width: 20%;
+            margin-left: 40%;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #333333;
+            font-weight: bold;
+            margin-top: 10%;
+        }
+    }
+}

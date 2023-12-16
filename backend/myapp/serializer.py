@@ -11,3 +11,7 @@ class RandomImgSerializer(serializers.ModelSerializer):
         model = RandomImg
         fields = ['id', 'img_url']
     
+class IntentionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Intention
+        fields = '__all__'

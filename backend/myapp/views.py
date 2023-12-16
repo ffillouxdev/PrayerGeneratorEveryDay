@@ -2,11 +2,20 @@ from django.shortcuts import render, HttpResponse
 from django.http import JsonResponse
 from .models import *
 import random
-from django.views.decorators.http import require_POST
+from django.views.decorators.http import require_POST, require_GET
 
-from rest_framework.views import APIView
+from rest_framework.views import APIView, exception_handler
 from rest_framework.response import Response
 from .serializer import *
+
+def custom_exception_handler(exc, context):
+    response = exception_handler(exc, context)
+
+    if response is not None:
+        response.data['detail'] = str(exc)
+
+    return response
+
 
 class PrayerView(APIView):
     def get(self, request):
@@ -25,20 +34,29 @@ class RandomImgView(APIView):
                   for randomImg in RandomImg.objects.all()]
         return Response(output)
 
+  
+class IntentionView(APIView):
+    def get(self, request):
+        output = [{"id" : intention.id, "intention_text" : intention.intention_text, "type_of_people" : intention.type_of_people}
+                  for intention in Intention.objects.all()]
+        return Response(output)
+
     def post(self, request):
-        serializer = RandomImgSerializer(data=request.data)
+        print("Received data:", request.data)
+        serializer = IntentionSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response(serializer.data)
-        
-from django.views.decorators.http import require_GET
+
+
+
 
 @require_GET
-def contact_view(request):
+def contact_get_view(request):
     render = render(request, 'contact.html')
 
 @require_POST
-def contact_view(request):
+def contact_post_view(request):
     data = {'content': 'Contenu de la page contact'}
     return JsonResponse(data)
 

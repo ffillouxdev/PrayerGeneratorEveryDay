@@ -1,15 +1,12 @@
 import '../styles/contact.scss';
 
 // Importing the components
-import Head from '../components/head';
-import Navbar from '../components/navbar';
-import Footer from '../components/footer';
+import Head from '../components/Head';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import InfosStrip from '../components/InfoStrip';
 
 // Import des images
-import phoneIcon from '../assets/phone.png';
-import emailIcon from '../assets/email.png';
-import locationIcon from '../assets/location.png';
 
 
 import React from 'react';
