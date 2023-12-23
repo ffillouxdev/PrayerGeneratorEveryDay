@@ -38,7 +38,7 @@ export default function Contact() {
 
                         <div className="bottom-form">
                             <label htmlFor="message">Message</label>
-                            <textarea name="message" id="textMessage" className="form-textarea" cols="30" rows="10" required></textarea>
+                            <textarea name="message" id="textMessage" className="form-textarea" required></textarea>
 
                             <button type="submit" className="form-button">Envoyer</button>
                         </div>
