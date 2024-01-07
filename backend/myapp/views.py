@@ -37,7 +37,7 @@ class RandomImgView(APIView):
   
 class IntentionView(APIView):
     def get(self, request):
-        output = [{"id" : intention.id, "intention_text" : intention.intention_text, "type_of_people" : intention.type_of_people}
+        output = [{"id" : intention.id,"intention_title" : intention.intention_title, "intention_text" : intention.intention_text, "type_of_people" : intention.type_of_people}
                   for intention in Intention.objects.all()]
         return Response(output)
 

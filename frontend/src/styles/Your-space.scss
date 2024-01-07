@@ -29,7 +29,6 @@
         align-items: center;
         justify-content: space-between;
         width: 100%;
-        ;
         
         .intention_section_container{
             display: flex;
@@ -48,6 +47,19 @@
 
         h2{
             color: #ffd700;    
+        }
+
+        .inputTitle{
+            width: 90%;
+            height: 35px;
+            border-radius: 5px;
+            border: 1px solid #000;
+            background-color: #fff;
+            color: #000;
+            font-weight: bold;
+            font-size: 15px;
+            padding: 10px;
+            margin-bottom: 5px;
         }
 
         textarea {
@@ -83,7 +95,38 @@
         }
     }
 
+    
+
     .community-section{
         height: 50vh;
+        .flex-community-rubrique{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-evenly;  
+    
+            .community-rubrique{
+                border: 2px solid #000;
+                border-radius: 5%;
+                width: 20%;
+                min-height: 25vh;
+                max-height: auto;
+            
+                li{
+                    font-size: 13px;
+                    font-weight: bold;
+                    cursor: pointer;
+                    transition: all 0.3s ease-in-out;
+                    &:hover{
+                        color: #ffd700;
+                    }
+                }
+                
+                a {
+                    color: #000;
+                    text-decoration: none;
+                }
+            }
+        }
     }
 }

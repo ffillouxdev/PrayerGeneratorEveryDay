@@ -25,12 +25,21 @@ class Intention(models.Model):
         (PRAYER_FOR_FRIENDS, 'Pour vos amis'),
         (PRAYER_FOR_ENEMIES, 'Pour vos ennemis'),
     ]
-
+    intention_title = models.CharField(max_length=70, default='YourDefaultValue')
     intention_text = models.CharField(max_length=350)
     type_of_people = models.CharField(max_length=100, choices=TYPE_OF_PEOPLE_CHOICES)
 
     def __str__(self):
-        return self.intention_text
+        return self.intention_title and self.intention_text 
+
+
+class RubriquesYS(models.Model):
+    rubriqueName = models.CharField(max_length=100)
+    
+
+    def __str__(self):
+        return self.rubriqueName
+
 
 # Subclass AppConfig and override ready() method
 class MyappConfig(AppConfig):
@@ -42,5 +51,4 @@ class MyappConfig(AppConfig):
         from myapp.models import reset_random_img
         # Call the function when the app is ready
         reset_random_img()
-
 

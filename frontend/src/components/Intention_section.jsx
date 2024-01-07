@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import axios from "axios";
 
 export default function IntentionSection() {    
-    const handleIntentionSubmit = async (typeOfpeople, intentionText) => {
+    const handleIntentionSubmit = async (typeOfpeople, intentionText, intentionTitle) => {
         try {
-            console.log("Intention text:", intentionText);
+            console.log("Intention title : ", intentionTitle, "Intention text:", intentionText, "Type of people:", typeOfpeople);
             // REQUETE POST vers l'API DJANGO
             const response = await axios.post('http://localhost:8000/intention/', {
+                intention_title: intentionTitle,
                 intention_text: intentionText,
                 type_of_people: typeOfpeople,
             });
@@ -31,22 +32,24 @@ export default function IntentionSection() {
     
     return (
         <div className="My_Personnal_prayer_intention" id="intensionPart">
-            <IntentionSectionBox title_sect="Pour les votres" content="Vous pouvez laisser vos intentions de prières ici, elles seront lues par les membres de la communauté et nous prierons pour vous." onSubmit={(text) => handleIntentionSubmit("Pour les votres", text)} />
-            <IntentionSectionBox title_sect="Pour votre famille" content="Vous pouvez laisser les intentions de prières pour votre famille ici, elles seront lues par les membres de la communauté et nous prierons pour vous." onSubmit={(text) => handleIntentionSubmit("Pour votre famille", text)} />
-            <IntentionSectionBox title_sect="Pour vos amis" content="Vous pouvez laisser les intentions de prières pour vos amis ici, elles seront lues par les membres de la communauté et nous prierons pour vous." onSubmit={(text) => handleIntentionSubmit("Pour vos amis", text)} />
-            <IntentionSectionBox title_sect="Pour vos ennemis" content="Vous pouvez laisser les intentions de prières pour vos ennemis ici, elles seront lues par les membres de la communauté et nous prierons pour vous." onSubmit={(text) => handleIntentionSubmit("Pour vos ennemis", text)} />
+            <IntentionSectionBox title_sect="Pour les votres" content="Vous pouvez laisser vos intentions de prières ici, elles seront lues par les membres de la communauté et nous prierons pour vous." onSubmit={(text, title) => handleIntentionSubmit("Pour les votres", text, title)} />
+            <IntentionSectionBox title_sect="Pour votre famille" content="Vous pouvez laisser les intentions de prières pour votre famille ici, elles seront lues par les membres de la communauté et nous prierons pour vous." onSubmit={(text, title) => handleIntentionSubmit("Pour votre famille", text, title)} />
+            <IntentionSectionBox title_sect="Pour vos amis" content="Vous pouvez laisser les intentions de prières pour vos amis ici, elles seront lues par les membres de la communauté et nous prierons pour vous." onSubmit={(text, title) => handleIntentionSubmit("Pour vos amis", text, title)} />
+            <IntentionSectionBox title_sect="Pour vos ennemis" content="Vous pouvez laisser les intentions de prières pour vos ennemis ici, elles seront lues par les membres de la communauté et nous prierons pour vous." onSubmit={(text, title) => handleIntentionSubmit("Pour vos ennemis", text, title)} />
         </div>
     );
 }
 
 const IntentionSectionBox = ({ title_sect, content, onSubmit}) => {
     const [boxIntentionText, setBoxIntentionText] = useState('');
+    const [intentionTitle, setIntentionTitle] = useState('');
     return (
         <div className="intention_section">
             <div className="intention_section_container">
                 <h2 className="h2intention center">{title_sect}</h2>
                 <p className="Pintention center">{content}</p>
                 {/* Utilisation de l'état local pour suivre le texte de l'intention */}
+                <input className="inputTitle" type="text" placeholder="Titre" maxLength={50} value={intentionTitle} onChange={(e) => setIntentionTitle(e.target.value)} />
                 <textarea
                     name="texta"
                     id="intention_textarea"
@@ -57,7 +60,7 @@ const IntentionSectionBox = ({ title_sect, content, onSubmit}) => {
                     onChange={(e) => setBoxIntentionText(e.target.value)}
                 ></textarea>
                 {/*console.log("Intention text:", boxIntentionText)*/}
-                <button className="intention_button" onClick={() => { onSubmit(boxIntentionText)}}>
+                <button className="intention_button" onClick={() => { onSubmit(boxIntentionText, intentionTitle); setBoxIntentionText(''); setIntentionTitle(''); }}>
                     Envoyer
                 </button>
             </div>

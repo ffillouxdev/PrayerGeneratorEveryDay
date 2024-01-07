@@ -64,7 +64,6 @@
                     font-size: 15px;
                     width: 500px;
                     animation: fadeIn 1ms linear;
-                    animation-timeline: scroll();
                 }
             }
 
@@ -135,7 +134,6 @@
                 background-color: #ffd700;
                 transform: scale(1.1);
             }
-            
         }
     }
 
@@ -188,6 +186,7 @@
             }
         }
     }
+    
     .animated {
         visibility: visible;
         animation-fill-mode: both;
