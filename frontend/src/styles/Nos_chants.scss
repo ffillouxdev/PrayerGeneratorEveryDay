@@ -1,0 +1,176 @@
+.Nos_chants {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 120vh;
+
+
+    .first-section-chant {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 50px;
+        text-align: center;
+
+        .first-section-chant-title {
+            font-size: 2rem;
+            color: #fff;
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+            animation: opacity 3s ease-in-out;
+        }
+
+        .first_section-chants-ul {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 15px;
+
+            .Li_audioname {
+                height: 300px;
+                width: 250px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                margin: 4px;
+                border: 2px solid #000;
+                text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+                justify-content: space-evenly;
+                transition: transform 0.3s ease-in-out;
+                border-radius: 1px;
+                animation: opacity 2s ease-in-out;
+                cursor: pointer;
+
+                &:hover {
+                    transform: translateY(-10px);
+                    transition: 0.5s;
+                    color: var(--color-secondary);
+
+                    &:hover {
+                        transform: translateY(-10px);
+                        transition: 0.5s;
+                        color: var(--color-secondary);
+
+                        a {
+                            color: var(--color-secondary);
+                        }
+
+                        #extraText p {
+                            color: var(--color-secondary);
+                        }
+
+                        hr {
+                            border-color: var(--color-secondary);
+                        }
+                    }
+                }
+
+                a {
+                    text-decoration: none;
+                    color: #fff;
+                    text-shadow: -1px 1px 2px #000;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+
+                #extraText p {
+                    font-size: 13px;
+                    color: #fff;
+                    text-shadow: -1px 1px 2px #000;
+                }
+
+                p {
+                    color: #fff;
+                    margin-top: 5%;
+                    font-weight: bold;
+                    text-shadow: -1px 1px 2px #000;
+                }
+
+                hr {
+                    margin-bottom: 5%;
+                    width: 50%;
+                    border: 1px solid #fff;
+                    box-shadow: 0 0 10px #000;
+                }
+            }
+        }
+    }
+}
+
+.Nos_chants_details {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .Nous_chants_details-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 70%;
+
+        img {
+            max-width: 400px;
+            max-height: 400px;
+        }
+
+        .Nous_chants_details-left-container {
+            width: 50%;
+        }
+
+        .Nous_chants_details-downloads {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+
+            button {
+                height: 30px;
+                width: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-left: 4px;
+
+            }
+        }
+    }
+}
+
+@media (max-width: 490px) {
+    .Nos_chants {
+        height: 300vh;
+
+        .first-section-chant {
+            .first-section-chant-title {
+                font-size: 1.5rem;
+            }
+
+            .first_section-chants-ul {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+
+        .Nous_chants_details {
+            .Nous_chants_details-container {
+                flex-direction: column;
+                width: 100%;
+
+                img {
+                    max-width: 300px;
+                    max-height: 300px;
+                }
+
+                .Nous_chants_details-left-container {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

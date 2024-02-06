@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}?{% now 'U' %}">
+<!--<script src="{% static 'js/random_Images.js' %}?{% now 'U' %}"></script>-->
+{% endblock %}
+{% block content %}
+<div id="prayers" class="first-section">
+    <h1>Recevez votre <br> prière quotidienne 🙏</h1>
+    <div class="central-container">
+        <div class="prayerGenerator">
+            <img src="{{ randomImg.img_url }}" alt="Image de prière" id="prayerImage">
+            <p id="prayertext">"{{ prayer.prayer_text }}"</p>
+        </div>
+    </div>
+</div>
+<div class="second-section">
+    <div class="container1">
+        <div class="div1">
+            <h2>Vous êtes tous des merveilles de Dieu</h2>
+            <p>Notre mission est de vous guider dans votre cheminement spirituel, de vous apporter 
+            des prières et des enseignements inspirants, et de vous rappeler que vous êtes une création divine. 
+            Chaque pas que vous faites sur ce chemin est une bénédiction, une preuve que la grâce de Dieu brille en vous.
+            </p>
+        </div>
+        <div class="div2">
+            <img src="{%static 'assets/jesus.gif' %}" id="jesus-gif" alt="jesus walking with sheeps">
+        </div>
+    </div>
+    <div class="text-box_container">
+       <div class="text box1">
+            <img src="{%static 'assets/cross1.png' %}" alt="christian cross">
+            <a href="#nos_chants"><h3>Nos chants</h3></a>
+            <p>Sample text. Click to select the text box.</p>
+        </div>
+        <div class="text box2">
+            <img src="{%static 'assets/holyBible.png' %}" alt="holy bible">
+            <a href="#prayers"><h3>BIBLE</h3></a>
+            <p>Sample text. Click to select the text box.</p>
+        </div>
+    </div>
+</div>
+<div class="third-section">
+</div>
+<div id="nos_chants" class="fourth-section">
+    <p>{{musicForPrayer.tittle}}</p>
+    <div class="music-div">
+        <button id="left"><img src="{%static 'assets/left.png' %}" alt=""></button>
+        <button id="pause"><img src="{%static 'assets/pause.png' %}" alt=""></button>
+        <button id="right"><img src="{%static 'assets/right.png' %}" alt=""></button>
+    </div>
+</div>
+{% endblock %}

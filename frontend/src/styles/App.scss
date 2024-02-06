@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+
+// Styles pour les écrans de largeur supérieure ou égale à 500px
+* {
+  box-sizing: border-box;
+  resize: none;
+  font-family: 'K2D', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+}
+
+nav {
+  height: 80px;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+    h1 {
+      color: var(--color-secondary);
+      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      width: 50vw;
+      height: 30px;
+      margin-left: 15vw;
+      list-style: none;
+      text-decoration: none;
+
+      li {
+
+        &:nth-child(-n + 3) {
+          a {
+            color: var(--color-secondary);
+            text-decoration: none;
+            font-size: 1rem;
+            position: relative;
+            font-weight: bold;
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+
+            &:hover {
+              color: #ffffff;
+              transition: 0.5s;
+            }
+
+            &::before {
+              content: '';
+              position: absolute;
+              bottom: -5px;
+              left: 0;
+              width: 100%;
+              height: 2px;
+              background-color: var(--color-secondary);
+              visibility: hidden;
+              transform: scaleX(0);
+              transition: transform 0.4s ease-in-out;
+            }
+
+            &:hover::before {
+              visibility: visible;
+              transform: scaleX(1);
+            }
+          }
+        }
+
+        #profileUser {
+          width: 40px;
+          height: 42px;
+        }
+      }
+    }
+  }
+}
+
+
+/* Footer Section */
+footer {
+  background-color: var(--color-primary);
+  bottom: 0;
+  position: relative;
+  width: 100%;
+
+  .footer_container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: var(--color-secondary);
+    padding: 0 20px;
+
+    .first-div h2 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 5%;
+      color: #ffffff;
+    }
+
+
+    .first-div p {
+      width: 250px;
+      text-align: left;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
+    .page-div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .page-div a {
+      text-align: center;
+      text-decoration: none;
+      color: var(--color-secondary);
+      font-size: 1rem;
+      font-weight: bold;
+      margin-top: 10%;
+
+      &:hover {
+        color: #ffffff;
+        transition: 0.5s;
+      }
+    }
+
+    .politics-div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .politics-div a {
+      text-align: center;
+      text-decoration: none;
+      color: var(--color-secondary);
+      font-size: 1rem;
+      font-weight: bold;
+      margin-top: 10%;
+
+      &:hover {
+        color: #ffffff;
+        transition: 0.5s;
+      }
+    }
+  }
+
+  hr {
+    border: 1px solid var(--color-secondary);
+    margin-top: 2%;
+    width: 70%;
+    margin-left: 15%;
+  }
+
+  .copyrights-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-secondary);
+    padding-bottom: 0.6%;
+  }
+}
+
+
+.scrolled {
+  background-color: #1255b981;
+  transition: 0.5s;
+}
+
+@media (max-width: 670px) {
+
+  nav {
+    background-color: var(--color-primary);
+    width: 100%;
+    height: 130px;
+    z-index: 1;
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .navbarNav {
+        width: 100%;
+
+        ul {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          align-items: center;
+          width: 100%;
+          padding: 0;
+          margin-left: 0;
+
+          #profileUser {
+            width: 40px;
+            height: 42px;
+            z-index: 999;
+          }
+        }
+      }
+
+    }
+  }
+
+  footer {
+    .footer_container {
+      display: flex;
+      flex-direction: column;
+
+      .first-div p {
+        text-align: center;
+      }
+
+      .page-div {
+        text-align: center;
+      }
+
+      .politics-div {
+        a {
+          margin-top: 0px;
+        }
+      }
+    }
+  }
+}
