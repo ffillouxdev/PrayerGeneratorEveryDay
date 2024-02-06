@@ -28,8 +28,6 @@ from rest_framework import routers
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('myapp.urls')),
-    path('api/auth/', include('authentification.urls')),
-    path('api/social/', include('social_accounts.urls')),
 ]
 
 if settings.DEBUG:
