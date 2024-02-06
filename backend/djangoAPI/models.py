@@ -1,8 +1,8 @@
-from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
+from django.contrib.auth.models import Group, Permission
+from django.db import models
+from django.utils.translation import gettext_lazy as _
 from .managers import CustomUserManager
-from django.utils.translation import ugettext_lazy as _
-
 
 class User(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(_("First Name"), max_length=30, blank=False)
@@ -11,6 +11,10 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     date_joined = models.DateTimeField(auto_now_add=True)
+    
+    # Define groups and user_permissions with related_name
+    groups = models.ManyToManyField(Group, verbose_name=_("Groups"), blank=True, related_name="users_custom")
+    user_permissions = models.ManyToManyField(Permission, verbose_name=_("User Permissions"), blank=True, related_name="users_custom")
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["first_name", "last_name"]
