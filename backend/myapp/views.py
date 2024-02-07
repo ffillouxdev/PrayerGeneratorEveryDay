@@ -5,7 +5,7 @@ from django.views.decorators.http import require_POST, require_GET
 
 from rest_framework.views import APIView, exception_handler
 from rest_framework.response import Response
-from .serializer import *
+from .serializers import *
 from rest_framework.permissions import IsAuthenticated, AllowAny
 
 

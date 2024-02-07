@@ -54,7 +54,7 @@ class CustomUserManager(BaseUserManager):
         else:
             raise ValueError(_("Base superuser : and email must be set"))
 
-        user = self.create_user(first_name, last_name, email, password, **extra_fields)
-        user.save()
+        user = self.create_user(first_name, last_name, email, password=password, **extra_fields)
+        user.save(using=self._db)
 
         return user

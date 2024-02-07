@@ -11,6 +11,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     date_joined = models.DateTimeField(auto_now_add=True)
+    username = None
     
     # Define groups and user_permissions with related_name
     groups = models.ManyToManyField(Group, verbose_name=_("Groups"), blank=True, related_name="users_custom")
