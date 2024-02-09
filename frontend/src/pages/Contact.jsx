@@ -17,35 +17,22 @@ export default function Contact() {
     const splitRef = useRef(null);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const navigate = useNavigate();
-    const [cookies, setCookie] = useCookies(["access_token"]);
     const [formSubmitted, setFormSubmitted] = useState(false);
     useEffect(() => {
         const checkAuthentication = async () => {
-            const accessToken = cookies.access_token;
-            if (!accessToken) {
-                return;
-            }
-
-            try {
-                const response = await axios.get(
-                    "http://localhost:8000/api/auth/profile/",
-                    {
-                        headers: {
-                            Authorization: `Bearer ${accessToken}`,
-                        },
-                    }
-                );
+            const user = localStorage.getItem("user");
+            if (user) {
                 setIsLoggedIn(true);
-            } catch (error) {
+            } else {
                 setIsLoggedIn(false);
             }
         };
 
         checkAuthentication();
-    }, [cookies]);
+    }, []);
 
     useEffect(() => {
-        const slideBottonToTop = (elem, delay, duration) => {
+        const slideBottomToTop = (elem, delay, duration) => {
             gsap.fromTo(
                 elem,
                 {
@@ -89,7 +76,7 @@ export default function Contact() {
 
         const handleScrollAnimations = () => {
             const sections = document.querySelectorAll(
-                ".contact-section h1, .contact-section p, .infos-form, .form-contact, .contact-section h1, .contact-section p"
+                ".contact-section h2, .contact-section p, .infos-form, .form-contact, .contact-section h1, .contact-section p"
             );
 
             sections.forEach((section, index) => {
@@ -101,13 +88,13 @@ export default function Contact() {
                     start: start,
                     onEnter: () => {
                         if (index === 0) {
-                            slideBottonToTop(section, 0.5, 1);
+                            slideBottomToTop(section, 0.5, 1);
                         } else if (index === 1) {
-                            slideBottonToTop(section, 0.9, 1);
+                            slideBottomToTop(section, 0.7, 1);
                         } else if (index === 2) {
-                            slideBottonToTop(section, 0.7, 1);
-                        } else if (index === 3) {
                             slideTopToBottom(section, 0.7, 1);
+                        } else if (index === 3) {
+                            slideBottomToTop(section, 0.7, 1);
                         }
                     },
                 });

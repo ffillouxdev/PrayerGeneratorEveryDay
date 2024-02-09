@@ -23,9 +23,6 @@ function Footer() {
                     <span onClick={() => handleLinkClick("/Your-space")}>
                         <Link to="/Your-space">Votre espace</Link>
                     </span>
-                    <span onClick={() => handleLinkClick("/Your-space#intensionPart")}>
-                        <Link to="/Your-space#intensionPart">Intension</Link>
-                    </span>
                     <span onClick={() => handleLinkClick("/Your-space#Community")}>
                         <Link to="/Your-space#Community">Communauté</Link>
                     </span>

@@ -1,4 +1,4 @@
-import axios from "axios"; 
+import axios from "axios";
 
 const BACKEND_DOMAIN = "http://localhost:8000";
 
@@ -33,7 +33,7 @@ const login = async (userData) => {
 
     const response = await axios.post(LOGIN_URL, userData, config);
 
-    if(response.data){
+    if (response.data) {
         localStorage.setItem("user", JSON.stringify(response.data));
     }
 
@@ -59,6 +59,31 @@ const activate = async (userData) => {
 }
 
 
-const authService = {register, login, logout, activate};
+const resetPassword = async (userData) => {
+    const config = {
+        headers: {
+            "Content-Type": "application/json",
+        }
+    }
+
+    const response = await axios.post(RESET_PASSWORD_URL, userData, config);
+
+    return response.data;
+}
+
+const resetPasswordConfirm = async (userData) => {
+    const config = {
+        headers: {
+            "Content-Type": "application/json",
+        }
+    }
+
+    const response = await axios.post(RESET_PASSWORD_CONFIRM_URL, userData, config);
+
+    return response.data;
+}
+
+
+const authService = { register, login, logout, activate, resetPassword, resetPasswordConfirm };
 
 export default authService;

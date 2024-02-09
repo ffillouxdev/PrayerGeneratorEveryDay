@@ -10,8 +10,6 @@ import { useNavigate, useLocation } from 'react-router-dom'; // Import useLocati
 import { Timeline } from 'gsap/gsap-core';
 import { SplitText } from 'gsap-trial/SplitText';
 import { gsap } from 'gsap';
-import axios from 'axios';
-import { useCookies } from 'react-cookie';
 
 import imgYourSpaceBg from '../assets/church1.jpg';
 
@@ -22,25 +20,15 @@ gsap.config({ trialWarn: false });
 export default function Your_space() {
     const splitRef = useRef(null);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const navigate = useNavigate();
     const location = useLocation();
-    const [cookies, setCookie] = useCookies(['access_token']);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const checkAuthentication = async () => {
-            const accessToken = cookies.access_token;
-            if (!accessToken) {
-                return;
-            }
-
-            try {
-                const response = await axios.get('http://localhost:8000/api/auth/profile/', {
-                    headers: {
-                        Authorization: `Bearer ${accessToken}`,
-                    },
-                });
+            const user = localStorage.getItem('user');
+            if (user) {
                 setIsLoggedIn(true);
-            } catch (error) {
+            } else {
                 setIsLoggedIn(false);
             }
         };
@@ -55,7 +43,7 @@ export default function Your_space() {
                 targetElement.scrollIntoView({ behavior: 'smooth' });
             }
         }
-    }, [cookies, location]);
+    }, []);
 
     useEffect(() => {
         if (splitRef.current) {

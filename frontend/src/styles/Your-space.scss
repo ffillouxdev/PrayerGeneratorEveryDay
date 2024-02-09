@@ -41,6 +41,7 @@
     p {
         color: #fff;
         font-size: 13px;
+        height: 60px;
     }
 
     h2 {
@@ -244,21 +245,7 @@
 }
 
 
-@media (max-height: 430px) {
-    .yourSpace {
-        height: 300vh;
 
-        h1 {
-            font-size: 35px;
-            margin-bottom: 15%;
-            width: 100%;
-            margin-left: 0;
-            text-align: center;
-        }
-
-
-    }
-}
 
 
 @media (max-width: 490px) {
@@ -266,8 +253,9 @@
         height: 300vh;
 
         h1 {
+            margin-top: 35%;
+            margin-bottom: 35%;
             font-size: 35px;
-            padding-top: 35%;
             width: 100%;
             margin-left: 0;
             text-align: center;
@@ -313,6 +301,31 @@
     }
 }
 
+@media (max-height: 380px) {
+    .yourSpace {
+        height: 700vh;
+
+        h1 {
+            display: none;
+        }
+
+
+    }
+}
+
+
+@media (max-height: 430px) {
+    .yourSpace {
+
+        h1 {
+            font-size: 35px;
+            margin-bottom: 15%;
+            width: 100%;
+            margin-left: 0;
+            text-align: center;
+        }
+    }
+}
 
 @media (max-width: 390px) {
     .yourSpace {

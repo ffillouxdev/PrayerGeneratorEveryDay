@@ -107,7 +107,7 @@ const AlreadyAccount = () => {
 
     useEffect(() => {
         if (isError) {
-            setError("Une erreur s'est produite lors de la connexion");
+            setError("Email ou mot de passe incorrect");
         }
 
         if (isSuccess || user) {
@@ -136,7 +136,7 @@ const AlreadyAccount = () => {
                         <input type="checkbox" name="remember-me" id="remember-me" />
                         <label htmlFor="remember-me">Se souvenir de moi</label>
                     </div>
-                    <Link to="/Profile/Reset-password">Mot de passe oublié ?</Link>
+                    <Link to="/reset-password">Mot de passe oublié ?</Link>
                 </div>
                 <button type="submit">Se connecter</button>
             </form>
@@ -194,6 +194,7 @@ const CreateAccount = () => {
                 re_password,
             }
             dispatch(register(userData));
+            navigate("/Profile/Validate");
         }
     };
 
@@ -239,7 +240,7 @@ const CreateAccount = () => {
 const ConnectedProfile = ({ userData }) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-   //console.log(userData);
+    //console.log(userData);
     const { user } = useSelector((state) => state.auth);
 
     const handleLogout = () => {
@@ -253,7 +254,7 @@ const ConnectedProfile = ({ userData }) => {
         <div className="connected-profile">
             <hr className="line" />
             <h2 className="center yellow">Mon profil</h2>
-            <Link to="/Profile/Reset-password">Changer le mot de passe</Link>
+            <Link to="/reset-password">Changer le mot de passe</Link>
             <button onClick={handleLogout}>Se déconnecter</button>
         </div>
     );

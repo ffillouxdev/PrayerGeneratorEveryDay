@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { useCookies } from "react-cookie";
 import axios from "axios";
 
 import Navbar from "../components/navbar";
@@ -30,9 +29,9 @@ export default function YourSpaceIntentions() {
             });
     }, []);
 
-    const isLoggedIn = useCookies(['access_token'])[0].access_token;
+    const user = localStorage.getItem("user");
 
-    if (!isLoggedIn) {
+    if (!user) {
         navigate('/Your-space');
         return null;
     }

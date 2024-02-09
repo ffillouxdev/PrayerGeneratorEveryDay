@@ -1,15 +1,13 @@
 import React, { useState } from "react";
-import { useCookies } from "react-cookie";
 import axios from "axios";
 
 export default function IntentionSection() {
-    const [cookies] = useCookies(["access_token"]);
     const handleIntentionSubmit = async (typeOfpeople, intentionText, intentionTitle) => {
         try {
             console.log("Intention title : ", intentionTitle, "Intention text:", intentionText, "Type of people:", typeOfpeople);
 
-            const accessToken = cookies.access_token;
-            if (!accessToken) {
+            const user = localStorage.getItem("user");
+            if (!user) {
                 return;
             }
 
