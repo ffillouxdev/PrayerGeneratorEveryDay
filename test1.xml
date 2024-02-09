@@ -1,0 +1,1405 @@
+<?xml version="1.0" encoding="System"?>
+<database>
+    <name>db</name>
+    <table>
+        <database></database>
+        <name>auth_group</name>
+        <ddl><![CDATA[CREATE TABLE "auth_group" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(150) NOT NULL UNIQUE)]]></ddl>
+        <columns>
+            <column>
+                <name>id</name>
+                <type>integer</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL </definition>
+                    </constraint>
+                    <constraint>
+                        <type>PRIMARY KEY</type>
+                        <definition>PRIMARY KEY AUTOINCREMENT</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>name</name>
+                <type>varchar</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL </definition>
+                    </constraint>
+                    <constraint>
+                        <type>UNIQUE</type>
+                        <definition>UNIQUE</definition>
+                    </constraint>
+                </constraints>
+            </column>
+        </columns>
+        <rows>
+        </rows>
+    </table>
+    <table>
+        <database></database>
+        <name>auth_group_permissions</name>
+        <ddl><![CDATA[CREATE TABLE "auth_group_permissions" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "group_id" integer NOT NULL REFERENCES "auth_group" ("id") DEFERRABLE INITIALLY DEFERRED, "permission_id" integer NOT NULL REFERENCES "auth_permission" ("id") DEFERRABLE INITIALLY DEFERRED)]]></ddl>
+        <columns>
+            <column>
+                <name>id</name>
+                <type>integer</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL </definition>
+                    </constraint>
+                    <constraint>
+                        <type>PRIMARY KEY</type>
+                        <definition>PRIMARY KEY AUTOINCREMENT</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>group_id</name>
+                <type>integer</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL </definition>
+                    </constraint>
+                    <constraint>
+                        <type>FOREIGN KEY</type>
+                        <definition>REFERENCES &quot;auth_group&quot; (&quot;id&quot;) </definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>permission_id</name>
+                <type>integer</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL </definition>
+                    </constraint>
+                    <constraint>
+                        <type>FOREIGN KEY</type>
+                        <definition>REFERENCES &quot;auth_permission&quot; (&quot;id&quot;) </definition>
+                    </constraint>
+                </constraints>
+            </column>
+        </columns>
+        <rows>
+        </rows>
+    </table>
+    <table>
+        <database></database>
+        <name>auth_permission</name>
+        <ddl><![CDATA[CREATE TABLE "auth_permission" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "content_type_id" integer NOT NULL REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED, "codename" varchar(100) NOT NULL, "name" varchar(255) NOT NULL)]]></ddl>
+        <columns>
+            <column>
+                <name>id</name>
+                <type>integer</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL </definition>
+                    </constraint>
+                    <constraint>
+                        <type>PRIMARY KEY</type>
+                        <definition>PRIMARY KEY AUTOINCREMENT</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>content_type_id</name>
+                <type>integer</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL </definition>
+                    </constraint>
+                    <constraint>
+                        <type>FOREIGN KEY</type>
+                        <definition>REFERENCES &quot;django_content_type&quot; (&quot;id&quot;) </definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>codename</name>
+                <type>varchar</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>name</name>
+                <type>varchar</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+        </columns>
+        <rows>
+            <row>
+                <value column="0">1</value>
+                <value column="1">1</value>
+                <value column="2">add_logentry</value>
+                <value column="3">Can add log entry</value>
+            </row>
+            <row>
+                <value column="0">2</value>
+                <value column="1">1</value>
+                <value column="2">change_logentry</value>
+                <value column="3">Can change log entry</value>
+            </row>
+            <row>
+                <value column="0">3</value>
+                <value column="1">1</value>
+                <value column="2">delete_logentry</value>
+                <value column="3">Can delete log entry</value>
+            </row>
+            <row>
+                <value column="0">4</value>
+                <value column="1">1</value>
+                <value column="2">view_logentry</value>
+                <value column="3">Can view log entry</value>
+            </row>
+            <row>
+                <value column="0">5</value>
+                <value column="1">2</value>
+                <value column="2">add_permission</value>
+                <value column="3">Can add permission</value>
+            </row>
+            <row>
+                <value column="0">6</value>
+                <value column="1">2</value>
+                <value column="2">change_permission</value>
+                <value column="3">Can change permission</value>
+            </row>
+            <row>
+                <value column="0">7</value>
+                <value column="1">2</value>
+                <value column="2">delete_permission</value>
+                <value column="3">Can delete permission</value>
+            </row>
+            <row>
+                <value column="0">8</value>
+                <value column="1">2</value>
+                <value column="2">view_permission</value>
+                <value column="3">Can view permission</value>
+            </row>
+            <row>
+                <value column="0">9</value>
+                <value column="1">3</value>
+                <value column="2">add_group</value>
+                <value column="3">Can add group</value>
+            </row>
+            <row>
+                <value column="0">10</value>
+                <value column="1">3</value>
+                <value column="2">change_group</value>
+                <value column="3">Can change group</value>
+            </row>
+            <row>
+                <value column="0">11</value>
+                <value column="1">3</value>
+                <value column="2">delete_group</value>
+                <value column="3">Can delete group</value>
+            </row>
+            <row>
+                <value column="0">12</value>
+                <value column="1">3</value>
+                <value column="2">view_group</value>
+                <value column="3">Can view group</value>
+            </row>
+            <row>
+                <value column="0">13</value>
+                <value column="1">4</value>
+                <value column="2">add_contenttype</value>
+                <value column="3">Can add content type</value>
+            </row>
+            <row>
+                <value column="0">14</value>
+                <value column="1">4</value>
+                <value column="2">change_contenttype</value>
+                <value column="3">Can change content type</value>
+            </row>
+            <row>
+                <value column="0">15</value>
+                <value column="1">4</value>
+                <value column="2">delete_contenttype</value>
+                <value column="3">Can delete content type</value>
+            </row>
+            <row>
+                <value column="0">16</value>
+                <value column="1">4</value>
+                <value column="2">view_contenttype</value>
+                <value column="3">Can view content type</value>
+            </row>
+            <row>
+                <value column="0">17</value>
+                <value column="1">5</value>
+                <value column="2">add_session</value>
+                <value column="3">Can add session</value>
+            </row>
+            <row>
+                <value column="0">18</value>
+                <value column="1">5</value>
+                <value column="2">change_session</value>
+                <value column="3">Can change session</value>
+            </row>
+            <row>
+                <value column="0">19</value>
+                <value column="1">5</value>
+                <value column="2">delete_session</value>
+                <value column="3">Can delete session</value>
+            </row>
+            <row>
+                <value column="0">20</value>
+                <value column="1">5</value>
+                <value column="2">view_session</value>
+                <value column="3">Can view session</value>
+            </row>
+            <row>
+                <value column="0">21</value>
+                <value column="1">6</value>
+                <value column="2">add_audio</value>
+                <value column="3">Can add audio</value>
+            </row>
+            <row>
+                <value column="0">22</value>
+                <value column="1">6</value>
+                <value column="2">change_audio</value>
+                <value column="3">Can change audio</value>
+            </row>
+            <row>
+                <value column="0">23</value>
+                <value column="1">6</value>
+                <value column="2">delete_audio</value>
+                <value column="3">Can delete audio</value>
+            </row>
+            <row>
+                <value column="0">24</value>
+                <value column="1">6</value>
+                <value column="2">view_audio</value>
+                <value column="3">Can view audio</value>
+            </row>
+            <row>
+                <value column="0">25</value>
+                <value column="1">7</value>
+                <value column="2">add_intention</value>
+                <value column="3">Can add intention</value>
+            </row>
+            <row>
+                <value column="0">26</value>
+                <value column="1">7</value>
+                <value column="2">change_intention</value>
+                <value column="3">Can change intention</value>
+            </row>
+            <row>
+                <value column="0">27</value>
+                <value column="1">7</value>
+                <value column="2">delete_intention</value>
+                <value column="3">Can delete intention</value>
+            </row>
+            <row>
+                <value column="0">28</value>
+                <value column="1">7</value>
+                <value column="2">view_intention</value>
+                <value column="3">Can view intention</value>
+            </row>
+            <row>
+                <value column="0">29</value>
+                <value column="1">8</value>
+                <value column="2">add_prayer</value>
+                <value column="3">Can add prayer</value>
+            </row>
+            <row>
+                <value column="0">30</value>
+                <value column="1">8</value>
+                <value column="2">change_prayer</value>
+                <value column="3">Can change prayer</value>
+            </row>
+            <row>
+                <value column="0">31</value>
+                <value column="1">8</value>
+                <value column="2">delete_prayer</value>
+                <value column="3">Can delete prayer</value>
+            </row>
+            <row>
+                <value column="0">32</value>
+                <value column="1">8</value>
+                <value column="2">view_prayer</value>
+                <value column="3">Can view prayer</value>
+            </row>
+            <row>
+                <value column="0">33</value>
+                <value column="1">9</value>
+                <value column="2">add_randomimg</value>
+                <value column="3">Can add random img</value>
+            </row>
+            <row>
+                <value column="0">34</value>
+                <value column="1">9</value>
+                <value column="2">change_randomimg</value>
+                <value column="3">Can change random img</value>
+            </row>
+            <row>
+                <value column="0">35</value>
+                <value column="1">9</value>
+                <value column="2">delete_randomimg</value>
+                <value column="3">Can delete random img</value>
+            </row>
+            <row>
+                <value column="0">36</value>
+                <value column="1">9</value>
+                <value column="2">view_randomimg</value>
+                <value column="3">Can view random img</value>
+            </row>
+            <row>
+                <value column="0">37</value>
+                <value column="1">10</value>
+                <value column="2">add_rubriquesys</value>
+                <value column="3">Can add rubriques ys</value>
+            </row>
+            <row>
+                <value column="0">38</value>
+                <value column="1">10</value>
+                <value column="2">change_rubriquesys</value>
+                <value column="3">Can change rubriques ys</value>
+            </row>
+            <row>
+                <value column="0">39</value>
+                <value column="1">10</value>
+                <value column="2">delete_rubriquesys</value>
+                <value column="3">Can delete rubriques ys</value>
+            </row>
+            <row>
+                <value column="0">40</value>
+                <value column="1">10</value>
+                <value column="2">view_rubriquesys</value>
+                <value column="3">Can view rubriques ys</value>
+            </row>
+            <row>
+                <value column="0">41</value>
+                <value column="1">11</value>
+                <value column="2">add_user</value>
+                <value column="3">Can add User</value>
+            </row>
+            <row>
+                <value column="0">42</value>
+                <value column="1">11</value>
+                <value column="2">change_user</value>
+                <value column="3">Can change User</value>
+            </row>
+            <row>
+                <value column="0">43</value>
+                <value column="1">11</value>
+                <value column="2">delete_user</value>
+                <value column="3">Can delete User</value>
+            </row>
+            <row>
+                <value column="0">44</value>
+                <value column="1">11</value>
+                <value column="2">view_user</value>
+                <value column="3">Can view User</value>
+            </row>
+        </rows>
+    </table>
+    <table>
+        <database></database>
+        <name>django_admin_log</name>
+        <ddl><![CDATA[CREATE TABLE "django_admin_log" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "object_id" text NULL, "object_repr" varchar(200) NOT NULL, "action_flag" smallint unsigned NOT NULL CHECK ("action_flag" >= 0), "change_message" text NOT NULL, "content_type_id" integer NULL REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED, "user_id" bigint NOT NULL REFERENCES "djangoAPI_user" ("id") DEFERRABLE INITIALLY DEFERRED, "action_time" datetime NOT NULL)]]></ddl>
+        <columns>
+            <column>
+                <name>id</name>
+                <type>integer</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL </definition>
+                    </constraint>
+                    <constraint>
+                        <type>PRIMARY KEY</type>
+                        <definition>PRIMARY KEY AUTOINCREMENT</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>object_id</name>
+                <type>text</type>
+                <constraints>
+                    <constraint>
+                        <type></type>
+                        <definition>NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>object_repr</name>
+                <type>varchar</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>action_flag</name>
+                <type>smallint unsigned</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL </definition>
+                    </constraint>
+                    <constraint>
+                        <type>CHECK</type>
+                        <definition>CHECK (&quot;action_flag&quot; &gt;= 0)</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>change_message</name>
+                <type>text</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>content_type_id</name>
+                <type>integer</type>
+                <constraints>
+                    <constraint>
+                        <type></type>
+                        <definition>NULL </definition>
+                    </constraint>
+                    <constraint>
+                        <type>FOREIGN KEY</type>
+                        <definition>REFERENCES &quot;django_content_type&quot; (&quot;id&quot;) </definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>user_id</name>
+                <type>bigint</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL </definition>
+                    </constraint>
+                    <constraint>
+                        <type>FOREIGN KEY</type>
+                        <definition>REFERENCES &quot;djangoAPI_user&quot; (&quot;id&quot;) </definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>action_time</name>
+                <type>datetime</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+        </columns>
+        <rows>
+            <row>
+                <value column="0">1</value>
+                <value column="1">2</value>
+                <value column="2">florian.filloux@etu.univ-lyon1.fr</value>
+                <value column="3">1</value>
+                <value column="4">[{&quot;added&quot;: {}}]</value>
+                <value column="5">11</value>
+                <value column="6">1</value>
+                <value column="7">2024-02-07 01:20:40.582929</value>
+            </row>
+            <row>
+                <value column="0">2</value>
+                <value column="1">2</value>
+                <value column="2">florian.filloux@etu.univ-lyon1.fr</value>
+                <value column="3">2</value>
+                <value column="4">[{&quot;changed&quot;: {&quot;fields&quot;: [&quot;First Name&quot;, &quot;Last Name&quot;]}}]</value>
+                <value column="5">11</value>
+                <value column="6">1</value>
+                <value column="7">2024-02-07 01:20:58.526649</value>
+            </row>
+        </rows>
+    </table>
+    <table>
+        <database></database>
+        <name>django_content_type</name>
+        <ddl><![CDATA[CREATE TABLE "django_content_type" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "app_label" varchar(100) NOT NULL, "model" varchar(100) NOT NULL)]]></ddl>
+        <columns>
+            <column>
+                <name>id</name>
+                <type>integer</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL </definition>
+                    </constraint>
+                    <constraint>
+                        <type>PRIMARY KEY</type>
+                        <definition>PRIMARY KEY AUTOINCREMENT</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>app_label</name>
+                <type>varchar</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>model</name>
+                <type>varchar</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+        </columns>
+        <rows>
+            <row>
+                <value column="0">1</value>
+                <value column="1">admin</value>
+                <value column="2">logentry</value>
+            </row>
+            <row>
+                <value column="0">2</value>
+                <value column="1">auth</value>
+                <value column="2">permission</value>
+            </row>
+            <row>
+                <value column="0">3</value>
+                <value column="1">auth</value>
+                <value column="2">group</value>
+            </row>
+            <row>
+                <value column="0">4</value>
+                <value column="1">contenttypes</value>
+                <value column="2">contenttype</value>
+            </row>
+            <row>
+                <value column="0">5</value>
+                <value column="1">sessions</value>
+                <value column="2">session</value>
+            </row>
+            <row>
+                <value column="0">6</value>
+                <value column="1">myapp</value>
+                <value column="2">audio</value>
+            </row>
+            <row>
+                <value column="0">7</value>
+                <value column="1">myapp</value>
+                <value column="2">intention</value>
+            </row>
+            <row>
+                <value column="0">8</value>
+                <value column="1">myapp</value>
+                <value column="2">prayer</value>
+            </row>
+            <row>
+                <value column="0">9</value>
+                <value column="1">myapp</value>
+                <value column="2">randomimg</value>
+            </row>
+            <row>
+                <value column="0">10</value>
+                <value column="1">myapp</value>
+                <value column="2">rubriquesys</value>
+            </row>
+            <row>
+                <value column="0">11</value>
+                <value column="1">djangoAPI</value>
+                <value column="2">user</value>
+            </row>
+        </rows>
+    </table>
+    <table>
+        <database></database>
+        <name>django_migrations</name>
+        <ddl><![CDATA[CREATE TABLE "django_migrations" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "app" varchar(255) NOT NULL, "name" varchar(255) NOT NULL, "applied" datetime NOT NULL)]]></ddl>
+        <columns>
+            <column>
+                <name>id</name>
+                <type>integer</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL </definition>
+                    </constraint>
+                    <constraint>
+                        <type>PRIMARY KEY</type>
+                        <definition>PRIMARY KEY AUTOINCREMENT</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>app</name>
+                <type>varchar</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>name</name>
+                <type>varchar</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>applied</name>
+                <type>datetime</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+        </columns>
+        <rows>
+            <row>
+                <value column="0">1</value>
+                <value column="1">contenttypes</value>
+                <value column="2">0001_initial</value>
+                <value column="3">2024-02-07 01:18:32.498066</value>
+            </row>
+            <row>
+                <value column="0">2</value>
+                <value column="1">contenttypes</value>
+                <value column="2">0002_remove_content_type_name</value>
+                <value column="3">2024-02-07 01:18:32.508949</value>
+            </row>
+            <row>
+                <value column="0">3</value>
+                <value column="1">auth</value>
+                <value column="2">0001_initial</value>
+                <value column="3">2024-02-07 01:18:32.521192</value>
+            </row>
+            <row>
+                <value column="0">4</value>
+                <value column="1">auth</value>
+                <value column="2">0002_alter_permission_name_max_length</value>
+                <value column="3">2024-02-07 01:18:32.528527</value>
+            </row>
+            <row>
+                <value column="0">5</value>
+                <value column="1">auth</value>
+                <value column="2">0003_alter_user_email_max_length</value>
+                <value column="3">2024-02-07 01:18:32.537046</value>
+            </row>
+            <row>
+                <value column="0">6</value>
+                <value column="1">auth</value>
+                <value column="2">0004_alter_user_username_opts</value>
+                <value column="3">2024-02-07 01:18:32.544319</value>
+            </row>
+            <row>
+                <value column="0">7</value>
+                <value column="1">auth</value>
+                <value column="2">0005_alter_user_last_login_null</value>
+                <value column="3">2024-02-07 01:18:32.552032</value>
+            </row>
+            <row>
+                <value column="0">8</value>
+                <value column="1">auth</value>
+                <value column="2">0006_require_contenttypes_0002</value>
+                <value column="3">2024-02-07 01:18:32.555162</value>
+            </row>
+            <row>
+                <value column="0">9</value>
+                <value column="1">auth</value>
+                <value column="2">0007_alter_validators_add_error_messages</value>
+                <value column="3">2024-02-07 01:18:32.560998</value>
+            </row>
+            <row>
+                <value column="0">10</value>
+                <value column="1">auth</value>
+                <value column="2">0008_alter_user_username_max_length</value>
+                <value column="3">2024-02-07 01:18:32.567742</value>
+            </row>
+            <row>
+                <value column="0">11</value>
+                <value column="1">auth</value>
+                <value column="2">0009_alter_user_last_name_max_length</value>
+                <value column="3">2024-02-07 01:18:32.573602</value>
+            </row>
+            <row>
+                <value column="0">12</value>
+                <value column="1">auth</value>
+                <value column="2">0010_alter_group_name_max_length</value>
+                <value column="3">2024-02-07 01:18:32.581596</value>
+            </row>
+            <row>
+                <value column="0">13</value>
+                <value column="1">auth</value>
+                <value column="2">0011_update_proxy_permissions</value>
+                <value column="3">2024-02-07 01:18:32.587755</value>
+            </row>
+            <row>
+                <value column="0">14</value>
+                <value column="1">auth</value>
+                <value column="2">0012_alter_user_first_name_max_length</value>
+                <value column="3">2024-02-07 01:18:32.593068</value>
+            </row>
+            <row>
+                <value column="0">15</value>
+                <value column="1">djangoAPI</value>
+                <value column="2">0001_initial</value>
+                <value column="3">2024-02-07 01:18:32.604628</value>
+            </row>
+            <row>
+                <value column="0">16</value>
+                <value column="1">admin</value>
+                <value column="2">0001_initial</value>
+                <value column="3">2024-02-07 01:18:32.615275</value>
+            </row>
+            <row>
+                <value column="0">17</value>
+                <value column="1">admin</value>
+                <value column="2">0002_logentry_remove_auto_add</value>
+                <value column="3">2024-02-07 01:18:32.626976</value>
+            </row>
+            <row>
+                <value column="0">18</value>
+                <value column="1">admin</value>
+                <value column="2">0003_logentry_add_action_flag_choices</value>
+                <value column="3">2024-02-07 01:18:32.634467</value>
+            </row>
+            <row>
+                <value column="0">19</value>
+                <value column="1">myapp</value>
+                <value column="2">0001_initial</value>
+                <value column="3">2024-02-07 01:18:32.643797</value>
+            </row>
+            <row>
+                <value column="0">20</value>
+                <value column="1">sessions</value>
+                <value column="2">0001_initial</value>
+                <value column="3">2024-02-07 01:18:32.650891</value>
+            </row>
+        </rows>
+    </table>
+    <table>
+        <database></database>
+        <name>django_session</name>
+        <ddl><![CDATA[CREATE TABLE "django_session" ("session_key" varchar(40) NOT NULL PRIMARY KEY, "session_data" text NOT NULL, "expire_date" datetime NOT NULL)]]></ddl>
+        <columns>
+            <column>
+                <name>session_key</name>
+                <type>varchar</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL </definition>
+                    </constraint>
+                    <constraint>
+                        <type>PRIMARY KEY</type>
+                        <definition>PRIMARY KEY</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>session_data</name>
+                <type>text</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>expire_date</name>
+                <type>datetime</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+        </columns>
+        <rows>
+            <row>
+                <value column="0">1a7o3l5fokux98v17rp58rbolcyi94v5</value>
+                <value column="1">.eJxVjDsOwjAQBe_iGln2xr9Q0nMGa71rkwCypTipEHeHSCmgfTPzXiLitk5x63mJM4uz0OL0uyWkR6474DvWW5PU6rrMSe6KPGiX18b5eTncv4MJ-_StvQnAiYPhkEeXgewQHEGxRNYFrSyMiq0uZHxG9AgDqqHA6EgVA86K9wfbizd5:1rXWbc:DZkyRQ-ng8avJk06zWoU9Cgwl4FKCFAboYCOVeRXB8E</value>
+                <value column="2">2024-02-21 01:20:04.239445</value>
+            </row>
+        </rows>
+    </table>
+    <table>
+        <database></database>
+        <name>djangoAPI_user</name>
+        <ddl><![CDATA[CREATE TABLE "djangoAPI_user" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "last_login" datetime NULL, "is_superuser" bool NOT NULL, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "email" varchar(254) NOT NULL UNIQUE, "is_staff" bool NOT NULL, "is_active" bool NOT NULL, "date_joined" datetime NOT NULL)]]></ddl>
+        <columns>
+            <column>
+                <name>id</name>
+                <type>integer</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL </definition>
+                    </constraint>
+                    <constraint>
+                        <type>PRIMARY KEY</type>
+                        <definition>PRIMARY KEY AUTOINCREMENT</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>password</name>
+                <type>varchar</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>last_login</name>
+                <type>datetime</type>
+                <constraints>
+                    <constraint>
+                        <type></type>
+                        <definition>NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>is_superuser</name>
+                <type>bool</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>first_name</name>
+                <type>varchar</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>last_name</name>
+                <type>varchar</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>email</name>
+                <type>varchar</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL </definition>
+                    </constraint>
+                    <constraint>
+                        <type>UNIQUE</type>
+                        <definition>UNIQUE</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>is_staff</name>
+                <type>bool</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>is_active</name>
+                <type>bool</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>date_joined</name>
+                <type>datetime</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+        </columns>
+        <rows>
+            <row>
+                <value column="0">1</value>
+                <value column="1">pbkdf2_sha256$720000$ow53hZ0RAhlgYz2gZfmzcI$7SChk9ug/7ANX0L/3GLNF/9Gn0876k4PLF/16zguaVg=</value>
+                <value column="2">2024-02-07 01:20:04.235001</value>
+                <value column="3">1</value>
+                <value column="4">florian</value>
+                <value column="5">filloux</value>
+                <value column="6">fillouxflorian56@gmail.com</value>
+                <value column="7">1</value>
+                <value column="8">1</value>
+                <value column="9">2024-02-07 01:19:40.361258</value>
+            </row>
+            <row>
+                <value column="0">2</value>
+                <value column="1">pbkdf2_sha256$720000$t5pt8gBWxGHWsN12P3tTz7$CAqsgUb56i2nB6HdKw9hTXq1Df4fZm/bjq1mlYNdF+o=</value>
+                <value column="2" null="true"/>
+                <value column="3">0</value>
+                <value column="4">sacha</value>
+                <value column="5">Roux</value>
+                <value column="6">florian.filloux@etu.univ-lyon1.fr</value>
+                <value column="7">0</value>
+                <value column="8">0</value>
+                <value column="9">2024-02-07 01:20:40.576868</value>
+            </row>
+        </rows>
+    </table>
+    <table>
+        <database></database>
+        <name>djangoAPI_user_groups</name>
+        <ddl><![CDATA[CREATE TABLE "djangoAPI_user_groups" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "user_id" bigint NOT NULL REFERENCES "djangoAPI_user" ("id") DEFERRABLE INITIALLY DEFERRED, "group_id" integer NOT NULL REFERENCES "auth_group" ("id") DEFERRABLE INITIALLY DEFERRED)]]></ddl>
+        <columns>
+            <column>
+                <name>id</name>
+                <type>integer</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL </definition>
+                    </constraint>
+                    <constraint>
+                        <type>PRIMARY KEY</type>
+                        <definition>PRIMARY KEY AUTOINCREMENT</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>user_id</name>
+                <type>bigint</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL </definition>
+                    </constraint>
+                    <constraint>
+                        <type>FOREIGN KEY</type>
+                        <definition>REFERENCES &quot;djangoAPI_user&quot; (&quot;id&quot;) </definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>group_id</name>
+                <type>integer</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL </definition>
+                    </constraint>
+                    <constraint>
+                        <type>FOREIGN KEY</type>
+                        <definition>REFERENCES &quot;auth_group&quot; (&quot;id&quot;) </definition>
+                    </constraint>
+                </constraints>
+            </column>
+        </columns>
+        <rows>
+        </rows>
+    </table>
+    <table>
+        <database></database>
+        <name>djangoAPI_user_user_permissions</name>
+        <ddl><![CDATA[CREATE TABLE "djangoAPI_user_user_permissions" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "user_id" bigint NOT NULL REFERENCES "djangoAPI_user" ("id") DEFERRABLE INITIALLY DEFERRED, "permission_id" integer NOT NULL REFERENCES "auth_permission" ("id") DEFERRABLE INITIALLY DEFERRED)]]></ddl>
+        <columns>
+            <column>
+                <name>id</name>
+                <type>integer</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL </definition>
+                    </constraint>
+                    <constraint>
+                        <type>PRIMARY KEY</type>
+                        <definition>PRIMARY KEY AUTOINCREMENT</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>user_id</name>
+                <type>bigint</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL </definition>
+                    </constraint>
+                    <constraint>
+                        <type>FOREIGN KEY</type>
+                        <definition>REFERENCES &quot;djangoAPI_user&quot; (&quot;id&quot;) </definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>permission_id</name>
+                <type>integer</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL </definition>
+                    </constraint>
+                    <constraint>
+                        <type>FOREIGN KEY</type>
+                        <definition>REFERENCES &quot;auth_permission&quot; (&quot;id&quot;) </definition>
+                    </constraint>
+                </constraints>
+            </column>
+        </columns>
+        <rows>
+        </rows>
+    </table>
+    <table>
+        <database></database>
+        <name>myapp_audio</name>
+        <ddl><![CDATA[CREATE TABLE "myapp_audio" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "audioName" varchar(150) NOT NULL, "audioUrl" varchar(100) NOT NULL, "imgAudioUrl" varchar(100) NOT NULL, "author" varchar(100) NOT NULL, "historyOfAudio" varchar(350) NOT NULL)]]></ddl>
+        <columns>
+            <column>
+                <name>id</name>
+                <type>integer</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL </definition>
+                    </constraint>
+                    <constraint>
+                        <type>PRIMARY KEY</type>
+                        <definition>PRIMARY KEY AUTOINCREMENT</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>audioName</name>
+                <type>varchar</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>audioUrl</name>
+                <type>varchar</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>imgAudioUrl</name>
+                <type>varchar</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>author</name>
+                <type>varchar</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>historyOfAudio</name>
+                <type>varchar</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+        </columns>
+        <rows>
+        </rows>
+    </table>
+    <table>
+        <database></database>
+        <name>myapp_intention</name>
+        <ddl><![CDATA[CREATE TABLE "myapp_intention" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "intention_title" varchar(70) NOT NULL, "intention_text" varchar(350) NOT NULL, "type_of_people" varchar(100) NOT NULL)]]></ddl>
+        <columns>
+            <column>
+                <name>id</name>
+                <type>integer</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL </definition>
+                    </constraint>
+                    <constraint>
+                        <type>PRIMARY KEY</type>
+                        <definition>PRIMARY KEY AUTOINCREMENT</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>intention_title</name>
+                <type>varchar</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>intention_text</name>
+                <type>varchar</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>type_of_people</name>
+                <type>varchar</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+        </columns>
+        <rows>
+        </rows>
+    </table>
+    <table>
+        <database></database>
+        <name>myapp_prayer</name>
+        <ddl><![CDATA[CREATE TABLE "myapp_prayer" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "prayer_text" varchar(200) NOT NULL)]]></ddl>
+        <columns>
+            <column>
+                <name>id</name>
+                <type>integer</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL </definition>
+                    </constraint>
+                    <constraint>
+                        <type>PRIMARY KEY</type>
+                        <definition>PRIMARY KEY AUTOINCREMENT</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>prayer_text</name>
+                <type>varchar</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+        </columns>
+        <rows>
+        </rows>
+    </table>
+    <table>
+        <database></database>
+        <name>myapp_randomimg</name>
+        <ddl><![CDATA[CREATE TABLE "myapp_randomimg" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "img_url" varchar(100) NOT NULL)]]></ddl>
+        <columns>
+            <column>
+                <name>id</name>
+                <type>integer</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL </definition>
+                    </constraint>
+                    <constraint>
+                        <type>PRIMARY KEY</type>
+                        <definition>PRIMARY KEY AUTOINCREMENT</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>img_url</name>
+                <type>varchar</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+        </columns>
+        <rows>
+        </rows>
+    </table>
+    <table>
+        <database></database>
+        <name>myapp_rubriquesys</name>
+        <ddl><![CDATA[CREATE TABLE "myapp_rubriquesys" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "rubriqueName" varchar(100) NOT NULL)]]></ddl>
+        <columns>
+            <column>
+                <name>id</name>
+                <type>integer</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL </definition>
+                    </constraint>
+                    <constraint>
+                        <type>PRIMARY KEY</type>
+                        <definition>PRIMARY KEY AUTOINCREMENT</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>rubriqueName</name>
+                <type>varchar</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+        </columns>
+        <rows>
+        </rows>
+    </table>
+    <index>
+        <database></database>
+        <name>auth_group_permissions_group_id_b120cbf9</name>
+        <ddl>CREATE INDEX &quot;auth_group_permissions_group_id_b120cbf9&quot; ON &quot;auth_group_permissions&quot; (&quot;group_id&quot;)</ddl>
+    </index>
+    <index>
+        <database></database>
+        <name>auth_group_permissions_group_id_permission_id_0cd325b0_uniq</name>
+        <unique>true</unique>
+        <ddl><![CDATA[CREATE UNIQUE INDEX "auth_group_permissions_group_id_permission_id_0cd325b0_uniq" ON "auth_group_permissions" ("group_id", "permission_id")]]></ddl>
+    </index>
+    <index>
+        <database></database>
+        <name>auth_group_permissions_permission_id_84c5c92e</name>
+        <ddl><![CDATA[CREATE INDEX "auth_group_permissions_permission_id_84c5c92e" ON "auth_group_permissions" ("permission_id")]]></ddl>
+    </index>
+    <index>
+        <database></database>
+        <name>auth_permission_content_type_id_2f476e4b</name>
+        <ddl>CREATE INDEX &quot;auth_permission_content_type_id_2f476e4b&quot; ON &quot;auth_permission&quot; (&quot;content_type_id&quot;)</ddl>
+    </index>
+    <index>
+        <database></database>
+        <name>auth_permission_content_type_id_codename_01ab375a_uniq</name>
+        <unique>true</unique>
+        <ddl><![CDATA[CREATE UNIQUE INDEX "auth_permission_content_type_id_codename_01ab375a_uniq" ON "auth_permission" ("content_type_id", "codename")]]></ddl>
+    </index>
+    <index>
+        <database></database>
+        <name>django_admin_log_content_type_id_c4bce8eb</name>
+        <ddl>CREATE INDEX &quot;django_admin_log_content_type_id_c4bce8eb&quot; ON &quot;django_admin_log&quot; (&quot;content_type_id&quot;)</ddl>
+    </index>
+    <index>
+        <database></database>
+        <name>django_admin_log_user_id_c564eba6</name>
+        <ddl>CREATE INDEX &quot;django_admin_log_user_id_c564eba6&quot; ON &quot;django_admin_log&quot; (&quot;user_id&quot;)</ddl>
+    </index>
+    <index>
+        <database></database>
+        <name>django_content_type_app_label_model_76bd3d3b_uniq</name>
+        <unique>true</unique>
+        <ddl><![CDATA[CREATE UNIQUE INDEX "django_content_type_app_label_model_76bd3d3b_uniq" ON "django_content_type" ("app_label", "model")]]></ddl>
+    </index>
+    <index>
+        <database></database>
+        <name>django_session_expire_date_a5c62663</name>
+        <ddl>CREATE INDEX &quot;django_session_expire_date_a5c62663&quot; ON &quot;django_session&quot; (&quot;expire_date&quot;)</ddl>
+    </index>
+    <index>
+        <database></database>
+        <name>djangoAPI_user_groups_group_id_b0993cf4</name>
+        <ddl>CREATE INDEX &quot;djangoAPI_user_groups_group_id_b0993cf4&quot; ON &quot;djangoAPI_user_groups&quot; (&quot;group_id&quot;)</ddl>
+    </index>
+    <index>
+        <database></database>
+        <name>djangoAPI_user_groups_user_id_00cd063a</name>
+        <ddl>CREATE INDEX &quot;djangoAPI_user_groups_user_id_00cd063a&quot; ON &quot;djangoAPI_user_groups&quot; (&quot;user_id&quot;)</ddl>
+    </index>
+    <index>
+        <database></database>
+        <name>djangoAPI_user_groups_user_id_group_id_124c54ba_uniq</name>
+        <unique>true</unique>
+        <ddl><![CDATA[CREATE UNIQUE INDEX "djangoAPI_user_groups_user_id_group_id_124c54ba_uniq" ON "djangoAPI_user_groups" ("user_id", "group_id")]]></ddl>
+    </index>
+    <index>
+        <database></database>
+        <name>djangoAPI_user_user_permissions_permission_id_97aba841</name>
+        <ddl><![CDATA[CREATE INDEX "djangoAPI_user_user_permissions_permission_id_97aba841" ON "djangoAPI_user_user_permissions" ("permission_id")]]></ddl>
+    </index>
+    <index>
+        <database></database>
+        <name>djangoAPI_user_user_permissions_user_id_cc1564dc</name>
+        <ddl><![CDATA[CREATE INDEX "djangoAPI_user_user_permissions_user_id_cc1564dc" ON "djangoAPI_user_user_permissions" ("user_id")]]></ddl>
+    </index>
+    <index>
+        <database></database>
+        <name>djangoAPI_user_user_permissions_user_id_permission_id_2cd8fd18_uniq</name>
+        <unique>true</unique>
+        <ddl><![CDATA[CREATE UNIQUE INDEX "djangoAPI_user_user_permissions_user_id_permission_id_2cd8fd18_uniq" ON "djangoAPI_user_user_permissions" ("user_id", "permission_id")]]></ddl>
+    </index>
+</database>

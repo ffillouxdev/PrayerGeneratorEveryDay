@@ -1,13 +1,13 @@
 import React from "react";
 
 
-import '../../styles/ForgetPassword.scss';
-import '../../styles/App.scss'
+//import '../../styles/ForgetPassword.scss';
+//import '../../styles/App.scss'
 
-import Navbar from "../../components/navbar";
-import Footer from "../../components/footer";
+// import Navbar from "../frontend/src/components/navbar";
+// import Footer from "../frontend/src/components/footer";
 
-import imgBG from "../../assets/bgProfilePage.jpg";
+// import imgBG from "../../assets/bgProfilePage.jpg";
 
 export default function ForgetPassword() {
     return (

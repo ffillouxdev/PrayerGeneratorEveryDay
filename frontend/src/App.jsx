@@ -13,16 +13,14 @@ import YourSpaceIntentions from './pages/YourSpaceIntentions';
 import Contact from './pages/Contact';
 import Profile from './pages/Profile';
 import VerifyMail from './pages/authentication-pages/VerifyMail';
-import Validate from './pages/authentication-pages/Validate';
-import ForgetPassword from './pages/authentication-pages/ForgetPassword';
-import ForgetPasswordConfirm from './pages/authentication-pages/ForgetPasswordConfirm';
 import ResetPassword from './pages/authentication-pages/ResetPassword';
 import Nos_chants from './pages/Nos_chants';
 import Nos_chantDetails from './pages/Nos_chantDetails';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Terms from './pages/Terms';
 import Page_404 from './pages/Page_404';
-
+import Validate from './pages/authentication-pages/Validate';
+import Activate from './pages/authentication-pages/ActivatePage';
 
 
 
@@ -47,8 +45,7 @@ class App extends React.Component {
             <Route path='/Profile' element={<Profile />} />
             <Route path='/Profile/Verify-Mail' element={<VerifyMail />} />
             <Route path='/Profile/Validate' element={<Validate />} />
-            <Route path='/Profile/forget-password' element={<ForgetPassword />} />
-            <Route path='/Profile/forget-password-confirm' element={<ForgetPasswordConfirm />} />
+            <Route path='/activate/:uid/:token' element={<Activate />} />
             <Route path="/Profile/Reset-password" element={<ResetPassword />} />
             <Route path="/Nos-chants" element={<Nos_chants />} />
             <Route path="/Nos-chants/:chantName" element={<Nos_chantDetails />} />

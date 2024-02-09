@@ -64,22 +64,20 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "myapp",
     "djangoAPI",
-    'rest_framework',
-    'corsheaders',
+    "rest_framework",
+    "corsheaders",
     "djoser",
     "rest_framework_simplejwt",
 ]
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
 }
 
 SIMPLE_JWT = {
-    "AUTH_HEADER_TYPES": (
-        "Bearer",
-        "JWT"),
+    "AUTH_HEADER_TYPES": ("Bearer", "JWT"),
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=120),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=60),
     "SIGNING_KEY": os.getenv("SIGNING_KEY"),  # Modifier cette ligne
@@ -88,21 +86,21 @@ SIMPLE_JWT = {
 }
 
 DJOSER = {
-    'LOGIN_FIELD': 'email',
-    'USER_CREATE_PASSWORD_RETYPE': True,
+    "LOGIN_FIELD": "email",
+    "USER_CREATE_PASSWORD_RETYPE": True,
     "USERNAME_CHANGED_EMAIL_CONFIRMATION": True,
     "PASSWORD_CHANGED_EMAIL_CONFIRMATION": True,
     "SEND_CONFIRMATION_EMAIL": True,
     "PASSWORD_RESET_CONFIRM_URL": "password/reset/confirm/{uid}/{token}",
     "SET_PASSWORD_RETYPE": True,
     "PASSWORD_RESET_CONFIRM_RETYPE": True,
-    'USERNAME_RESET_CONFIRM_URL': 'username/reset/confirm/{uid}/{token}',
-    'ACTIVATION_URL': 'activate/{uid}/{token}',
-    'SEND_ACTIVATION_EMAIL': True,
-    'SERIALIZERS': {
-        'user_create': 'djangoAPI.serializers.CreateUserSerializer',
-        'user': "djangoAPI.serializers.CreateUserSerializer",
-        'user_delete': "djoser.serializers.UserDeleteSerializer",      
+    "USERNAME_RESET_CONFIRM_URL": "username/reset/confirm/{uid}/{token}",
+    "ACTIVATION_URL": "activate/{uid}/{token}",
+    "SEND_ACTIVATION_EMAIL": True,
+    "SERIALIZERS": {
+        "user_create": "djangoAPI.serializers.CreateUserSerializer",
+        "user": "djangoAPI.serializers.CreateUserSerializer",
+        "user_delete": "djoser.serializers.UserDeleteSerializer",
     },
 }
 
@@ -199,3 +197,13 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
 ]
+
+EMAIL_BACKEND = os.getenv("EMAIL_BACKEND")
+EMAIL_USE_TLS = os.getenv("EMAIL_USE_TLS")
+EMAIL_HOST = os.getenv("EMAIL_HOST")
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
+EMAIL_PORT = os.getenv("EMAIL_PORT")
+DOMAIN= os.getenv("DOMAIN")
+SITE_NAME= "PrayerGeneratorEveryDay"
+DEFAULT_FROM_EMAIL = "info@prayerGeneratorEveryDay.fr"

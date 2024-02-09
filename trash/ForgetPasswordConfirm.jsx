@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import React from "react";
 
-import "../../styles/ForgetPassword.scss";
+// import "../../styles/ForgetPassword.scss";
 
-import Navbar from "../../components/navbar";
-import Footer from "../../components/footer";
+import Navbar from "../frontend/src/components/navbar";
+import Footer from "../frontend/src/components/footer";
 
 import imgBG from "../../assets/bgProfilePage.jpg";
 
