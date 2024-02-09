@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import { useCookies } from 'react-cookie';
 import { UseDispatch, useDispatch, useSelector } from "react-redux";
@@ -29,52 +28,27 @@ export default function Profile() {
         setShowAlreadyAccount(true);
     };
 
-    const handleLogout = async () => {
-        const refresh_token = cookies.refresh_token;
 
-        removeCookie('access_token');
-        removeCookie('refresh_token');
-        setUserData(null);
-
-        try {
-            await axios.post(
-                LOGOUT_URL,
-                { refresh_token: refresh_token },
-                {
-                    headers: {
-                        Authorization: `Bearer ${refresh_token}`,
-                    },
-                }
-            );
-
-            navigate("/Profile");
-        } catch (error) {
-            console.error("Error during logout:", error);
-        }
-    };
+    const { user, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const checkAuthentication = async () => {
-            const accessToken = cookies.access_token;
-            if (!accessToken) {
-                return;
-            }
-
-            try {
-                const response = await axios.get("http://localhost:8000/api/auth/profile/", {
-                    headers: {
-                        Authorization: `Bearer ${accessToken}`,
-                    },
-                });
-
-                setUserData(response.data);
-            } catch (error) {
-                console.error("Error fetching profile:", error);
+            if (isSuccess || user) {
+                setUserData(user);
+                console.log(user);
             }
         };
 
+
         checkAuthentication();
-    }, [cookies]);
+    }, [isError, isSuccess, user, navigate, dispatch]);
+
+    useEffect(() => {
+        if (!user) {
+            setUserData(null);
+        }
+    }, [user]);
 
 
     return (
@@ -86,7 +60,7 @@ export default function Profile() {
                 }}>
                 <div className="profile-section">
                     {userData ? (
-                        <ConnectedProfile userData={userData} onLogout={handleLogout} />
+                        <ConnectedProfile userData={userData} />
                     ) : (
                         <div className="profile-section-choice">
                             <button onClick={handleCreateAccountClick}>M'inscrire</button>
@@ -104,6 +78,7 @@ export default function Profile() {
 
 const AlreadyAccount = () => {
     const [error, setError] = useState("");
+    const [userData, setUserData] = useState(null);
     const [formData, setFormData] = useState({
         email: "",
         password: "",
@@ -136,7 +111,8 @@ const AlreadyAccount = () => {
         }
 
         if (isSuccess || user) {
-            navigate("/Profile/User");
+            navigate("/");
+            <ConnectedProfile userData={userData} />
         }
     }, [isError, isSuccess, user, navigate, dispatch]);
 
@@ -165,7 +141,7 @@ const AlreadyAccount = () => {
                 <button type="submit">Se connecter</button>
             </form>
         </div>
-    )
+    );
 }
 
 
@@ -259,7 +235,26 @@ const CreateAccount = () => {
     );
 }
 
-const ConnectedProfile = ({ userData, onLogout }) => {
-    const user = localStorage.getItem("user");
-    console.log(user);
+
+const ConnectedProfile = ({ userData }) => {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+   //console.log(userData);
+    const { user } = useSelector((state) => state.auth);
+
+    const handleLogout = () => {
+        dispatch(logout());
+        dispatch(reset());
+        navigate("/Profile")
+
+    }
+
+    return (
+        <div className="connected-profile">
+            <hr className="line" />
+            <h2 className="center yellow">Mon profil</h2>
+            <Link to="/Profile/Reset-password">Changer le mot de passe</Link>
+            <button onClick={handleLogout}>Se déconnecter</button>
+        </div>
+    );
 }
