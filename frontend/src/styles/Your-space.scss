@@ -187,7 +187,7 @@
     .intention-section {
         border-radius: 20px;
         width: 23.4375vw;
-        animation: opacity 2s ease-in-out;
+        animation: opacity 1.5s ease-in-out;
         padding-bottom: 1%;
 
         h1 {
@@ -212,6 +212,7 @@
         }
     }
 }
+
 
 @media (max-width: 670px) {
     .yourSpace {

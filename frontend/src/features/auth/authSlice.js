@@ -32,7 +32,22 @@ export const register = createAsyncThunk(
 export const login = createAsyncThunk(
     "auth/login",
     async (userdata, thunkAPI) => {
-        console.log(userdata);
+        enleverGuill(userdata);
+
+        const enleverGuill = (userdata) => {
+            let res = "";
+            let i = 0;
+            while (i < userdata.email.length) {
+                if (userdata.email[i] !== '"') {
+                    res += userdata.email[i];
+                }
+                i++;
+            }
+            console.log(res);
+            localStorage.setItem("email", res)
+        }
+
+
         try {
             return await authService.login(userdata);
         } catch (error) {

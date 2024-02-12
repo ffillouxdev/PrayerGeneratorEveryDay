@@ -1,12 +1,9 @@
-from django.http import JsonResponse
 from .models import *
-import random
-from django.views.decorators.http import require_POST, require_GET
 
 from rest_framework.views import APIView, exception_handler
 from rest_framework.response import Response
 from .serializers import *
-from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.permissions import AllowAny
 
 
 def custom_exception_handler(exc, context):
@@ -89,38 +86,21 @@ class AudioView(APIView):
             queryset = queryset.filter(audioName__icontains=query)
             return Audio.objects.filter(audioName__icontains=query).order_by
 
-@require_GET
-def contact_get_view(request):
-    render = render(request, 'contact.html')
 
-@require_POST
-def contact_post_view(request):
-    data = {'content': 'Contenu de la page contact'}
-    return JsonResponse(data)
-
-@require_POST
-def about_view(request):
-    data = {'content': 'Contenu de la page about'}
-    return JsonResponse(data)
-
-"""
-def home(request):
-    # Récupérez une prière aléatoire
-    random_prayer = random.choice(Prayer.objects.all())
-    # Récupérez une image aléatoire
-    random_image = random.choice(RandomImg.objects.all())
+class EmailReceptionView(APIView):
+    def get(self, request):
+        try:
+            output = [{'id': mailReception .id, "nom" : mailReception.name, "email": mailReception.mail, "message" : mailReception.message }
+                      for mailReception in  MailReception.objects.all()]
+            return Response(output)
+        except Exception as e:
+            return Response({'error': str(e)}, status=500)
     
-    context = {
-        'prayer': random_prayer,
-        'randomImg': random_image,
-    }
+    def post(self, request):
+        serializers = MailReceptionSerializer(data=request.data)
+        if serializers.is_valid(raise_exception=True):
+            serializers.save()
+            return Response(serializers.data, status=201)
+        return Response(serializers.errors, status=401)
     
-    return render(request, 'home.html', context)
-class PrayerViewSet(viewsets.ModelViewSet):
-    serializer_class = PrayerSerializer
-    queryset = Prayer.objects.all()
-
-class RandomImgViewSet(viewsets.ModelViewSet):
-    serializer_class = RandomImgSerializer
-    queryset = RandomImg.objects.all()
-"""
+        

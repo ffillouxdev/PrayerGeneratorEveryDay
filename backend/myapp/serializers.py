@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from myapp.models import Prayer, RandomImg, Intention, RubriquesYS, Audio
+from myapp.models import Prayer, RandomImg, Intention, RubriquesYS, Audio, MailReception
 
 
 class PrayerSerializer(serializers.ModelSerializer):
@@ -30,3 +30,9 @@ class AudioSerializer(serializers.ModelSerializer):
     class Meta:
         model = Audio
         fields = "__all__"
+
+
+class MailReceptionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MailReception
+        fields = '__all__'

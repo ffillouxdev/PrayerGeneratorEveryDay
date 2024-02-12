@@ -179,7 +179,7 @@
     animation: opacity 2s ease-in-out;
 }
 
-.popup {
+.popup, .maxMailPopup {
     opacity: 0;
     display: none;
     position: fixed;

@@ -14,7 +14,6 @@ export default function Profile() {
     const [showCreateAccount, setShowCreateAccount] = useState(false);
     const [showAlreadyAccount, setShowAlreadyAccount] = useState(false);
     const [userData, setUserData] = useState(null);
-    const [cookies, , removeCookie] = useCookies(['access_token']);
 
     const handleCreateAccountClick = (e) => {
         e.preventDefault();

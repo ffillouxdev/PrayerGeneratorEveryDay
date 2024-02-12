@@ -30,7 +30,6 @@ const login = async (userData) => {
             "Content-Type": "application/json",
         }
     }
-
     const response = await axios.post(LOGIN_URL, userData, config);
 
     if (response.data) {

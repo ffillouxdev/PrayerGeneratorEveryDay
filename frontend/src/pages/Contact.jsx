@@ -15,9 +15,18 @@ gsap.registerPlugin(ScrollTrigger, Power3);
 
 export default function Contact() {
     const splitRef = useRef(null);
+    const maxMailPopupRef = useRef(null);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const navigate = useNavigate();
     const [formSubmitted, setFormSubmitted] = useState(false);
+    const [compteur, setCompteur] = useState(0);
+    const emailUser = localStorage.getItem("email")
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        message: ""
+    });
+
     useEffect(() => {
         const checkAuthentication = async () => {
             const user = localStorage.getItem("user");
@@ -119,21 +128,40 @@ export default function Contact() {
     const handleFormSubmit = async (e) => {
         e.preventDefault();
 
-        if (isLoggedIn) {
+        if (isLoggedIn && compteur <= 2) {
             try {
                 alert("Email sent successfully!");
+                setCompteur(prevCount => prevCount + 1);
+                const response = await axios.post('http://localhost:8000/email/', {
+                    name: name,
+                    email: emailUser,
+                    message: message
+                });
+                console.log(response);
             } catch (error) {
                 console.error("Error sending email:", error);
             }
         } else {
             gsap.to(splitRef.current, { display: "block", opacity: 1, duration: 0.3 });
-            setFormSubmitted(true);
+            if (compteur == 2) {
+                maxMailPopupRef.current.style.display = "block";
+            } else {
+                setFormSubmitted(true);
+            }
+
         }
     };
 
     const closePopup = () => {
         gsap.to(splitRef.current, { display: "none", opacity: 0, duration: 0.3 });
     };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
+    const { name, email, message } = formData;
 
     return (
         <>
@@ -155,14 +183,14 @@ export default function Contact() {
                     <form className="form-contact" onSubmit={handleFormSubmit}>
                         <div className="top-form">
                             <label htmlFor="name">Nom</label>
-                            <input type="text" name="name" id="name" className="form-input" required />
+                            <input type="text" name="name" id="name" className="form-input" value={name} onChange={handleChange} required />
 
                             <label htmlFor="email">Email</label>
-                            <input type="text" name="email" id="email" className="form-input" required />
+                            <input type="text" name="email" id="email" className="form-input" value={email} onChange={handleChange} required />
                         </div>
                         <div className="bottom-form">
                             <label htmlFor="message">Message</label>
-                            <textarea name="message" id="textMessage" className="form-textarea" required></textarea>
+                            <textarea name="message" id="textMessage" className="form-textarea" value={message} onChange={handleChange} required></textarea>
                             <button type="submit" className="form-button">
                                 Envoyer
                             </button>
@@ -171,6 +199,10 @@ export default function Contact() {
                 </div>
                 <div ref={splitRef} className="popup">
                     <p>Vous devez être connecté pour envoyer un email.</p>
+                    <button onClick={closePopup}>Fermer</button>
+                </div>
+                <div ref={maxMailPopupRef} className="maxMailPopup">
+                    <p>Vous avez atteint votre capacité de mail pour aujourd'hui.</p>
                     <button onClick={closePopup}>Fermer</button>
                 </div>
             </main>
