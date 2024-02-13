@@ -1,5 +1,8 @@
 :root {
     /* Colors */
+    --color-black: #000;
+    --color-white: #fff;
+    --color-background: #ffffff;
     --color-primary: #1254b9;
     --color-primary-hover: #1254b9;
     --color-primary-active: #1254b9;
@@ -20,7 +23,7 @@
     .bold {
         font-weight: bold;
         font-size: 35px;
-        color: #000;
+        color: var(--color-black);
     }
 
     .yellow {

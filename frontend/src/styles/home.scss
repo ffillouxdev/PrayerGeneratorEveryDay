@@ -52,7 +52,7 @@
     #PriereAl {
         font-size: 25px;
         letter-spacing: 1px;
-        color: #fff;
+        color: var(--color-white);
         line-height: 1.8;
         text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
         width: 60%;
@@ -131,8 +131,8 @@
     }
 
     .text-box_container .text-box {
-        background-color: #fff;
-        color: #000;
+        background-color: var(--color-white);
+        color: var(--color-black);
         width: 160px;
         height: 200px;
         display: flex;
@@ -140,7 +140,7 @@
         align-items: center;
         justify-content: center;
         margin-top: -11%;
-        border: 5px solid #000;
+        border: 5px solid var(--color-black);
         transition: transform 0.2s ease-in-out;
 
         img {
@@ -229,7 +229,7 @@
         #defaultMusicIco {
             max-width: 400px;
             max-height: 400px;
-            border: 5px solid #000;
+            border: 5px solid var(--color-black);
             margin-bottom: 10%;
             animation: opacity 3s ease-in-out;
         }
@@ -237,7 +237,7 @@
         #MusicIcon {
             width: 300px;
             height: 400px;
-            border: 5px solid #000;
+            border: 5px solid var(--color-black);
             margin-bottom: 2%;
             animation: opacity 3s ease-in-out;
         }
@@ -401,7 +401,7 @@
 
                     &:hover {
                         transform: none;
-                        background-color: #fff;
+                        background-color: var(--color-white);
                     }
                 }
 
@@ -490,7 +490,7 @@
 
                     &:hover {
                         transform: none;
-                        background-color: #fff;
+                        background-color: var(--color-white);
                     }
                 }
 

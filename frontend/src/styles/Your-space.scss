@@ -10,7 +10,7 @@
     align-items: center;
 
     .h1_ {
-        color: #fff;
+        color: var(--color-white);
         font-weight: bold;
         margin-left: 5%;
         padding-top: 10%;
@@ -39,7 +39,7 @@
     }
 
     p {
-        color: #fff;
+        color: var(--color-white);
         font-size: 13px;
         height: 60px;
     }
@@ -52,9 +52,9 @@
         width: 90%;
         height: 35px;
         border-radius: 5px;
-        border: 1px solid #000;
-        background-color: #fff;
-        color: #000;
+        border: 1px solid var(--color-black);
+        background-color: var(--color-white);
+        color: var(--color-black);
         font-weight: bold;
         font-size: 15px;
         padding: 10px;
@@ -65,9 +65,9 @@
         width: 90%;
         height: 100%;
         border-radius: 10px;
-        border: 1px solid #000;
-        background-color: #fff;
-        color: #000;
+        border: 1px solid var(--color-black);
+        background-color: var(--color-white);
+        color: var(--color-black);
         font-weight: bold;
         font-size: 15px;
         padding: 10px;
@@ -80,15 +80,15 @@
         height: 50px;
         border-radius: 10px;
         border: none;
-        background-color: #000;
-        color: #fff;
+        background-color: var(--color-black);
+        color: var(--color-white);
         font-weight: bold;
         font-size: 15px;
         cursor: pointer;
 
         &:hover {
             background-color: var(--color-secondary);
-            color: #000;
+            color: var(--color-black);
             height: 55px;
         }
     }
@@ -104,7 +104,7 @@
         justify-content: space-evenly;
 
         .community-rubrique {
-            border: 2px solid #000;
+            border: 2px solid var(--color-black);
             border-radius: 5%;
             width: 20%;
             height: 35vh;
@@ -120,7 +120,7 @@
             }
 
             a {
-                color: #000;
+                color: var(--color-black);
                 text-decoration: none;
             }
         }
@@ -160,15 +160,15 @@
     .popup-content {
         h2 {
             font-size: 18px;
-            color: #000;
+            color: var(--color-black);
             margin-bottom: 20px;
         }
 
         a {
             display: inline-block;
             padding: 10px 20px;
-            background-color: #000;
-            color: #fff;
+            background-color: var(--color-black);
+            color: var(--color-white);
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
@@ -191,7 +191,7 @@
         padding-bottom: 1%;
 
         h1 {
-            color: #fff;
+            color: var(--color-white);
             font-weight: bold;
             text-shadow: 0 0 10px #000000;
             position: relative;
@@ -199,7 +199,7 @@
 
         p {
             text-align: left;
-            color: #fff;
+            color: var(--color-white);
             font-size: 16px;
             margin-left: 5%;
         }

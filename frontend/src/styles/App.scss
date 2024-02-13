@@ -11,7 +11,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #ffffff;
+  background-color:var( --color-background);
 }
 
 nav {
@@ -54,7 +54,7 @@ nav {
             text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 
             &:hover {
-              color: #ffffff;
+              color:var( --color-background);
               transition: 0.5s;
             }
 
@@ -106,7 +106,7 @@ footer {
       font-size: 1.5rem;
       font-weight: bold;
       margin-bottom: 5%;
-      color: #ffffff;
+      color:var( --color-background);
     }
 
 
@@ -132,7 +132,7 @@ footer {
       margin-top: 10%;
 
       &:hover {
-        color: #ffffff;
+        color:var( --color-background);
         transition: 0.5s;
       }
     }
@@ -152,7 +152,7 @@ footer {
       margin-top: 10%;
 
       &:hover {
-        color: #ffffff;
+        color:var( --color-background);
         transition: 0.5s;
       }
     }
