@@ -9,7 +9,7 @@
     justify-content: start;
     align-items: center;
 
-    h1 {
+    .h1_ {
         color: #fff;
         font-weight: bold;
         margin-left: 5%;
@@ -213,6 +213,14 @@
     }
 }
 
+@media (max-width: 1344px) {
+    .yourSpace {
+        height: 150vh;
+        .h1_{
+            margin-bottom: 100px;       
+        }
+    }
+}
 
 @media (max-width: 670px) {
     .yourSpace {

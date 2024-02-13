@@ -280,6 +280,28 @@
     }
 }
 
+@media (max-width: 1344px) {
+   
+    .third-section {
+        margin-top: 10vh;
+
+        .img-audio-div {
+            #MusicIcon {
+                width: 200px;
+                height: 300px;
+            }
+
+            .music-div {
+                audio {
+                    width: 200px;
+                    display: block;
+
+                }
+            }
+        }
+    }
+}
+
 .animated {
     visibility: visible;
     animation-fill-mode: both;

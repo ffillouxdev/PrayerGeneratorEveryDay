@@ -335,10 +335,17 @@
     }
 }
 
+@media (max-width: 1344px) {
+    .profile-page {
+        height: 150vh;
+    }
+
+    
+}
 
 @media (max-height: 420px) {
     .profile-page {
-        height: 200vh;
+        height: 120vh;
     }
 
 }

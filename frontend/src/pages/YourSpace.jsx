@@ -86,7 +86,7 @@ export default function Your_space() {
                     background: `url(${imgYourSpaceBg}) no-repeat center center fixed`,
                     backgroundSize: 'cover',
                 }}>
-                    <h1 ref={splitRef} className='h1 center split'>Ici vous pourrez laisser des intentions de prières</h1>
+                    <h1 ref={splitRef} className='h1_ center split'>Ici vous pourrez laisser des intentions de prières</h1>
                     <IntentionSection />
                 </div>
                 <div className="community-section" id="Community">
