@@ -80,7 +80,7 @@ SIMPLE_JWT = {
     "AUTH_HEADER_TYPES": ("Bearer", "JWT"),
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=360),
-    "SIGNING_KEY": os.getenv("SIGNING_KEY"),  
+    "SIGNING_KEY": os.getenv("SIGNING_KEY"),
     "AUTH_HEADER_NAME": "HTTP_AUTHORIZATION",
     "AUTH_TOKEN_CLASSES": ("rest_framework_simplejwt.tokens.AccessToken",),
 }
@@ -204,15 +204,14 @@ EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 EMAIL_PORT = os.getenv("EMAIL_PORT")
 DOMAIN = os.getenv("DOMAIN")
-SITE_NAME= "PrayerGeneratorEveryDay"
+SITE_NAME = "PrayerGeneratorEveryDay"
 DEFAULT_FROM_EMAIL = "info@prayerGeneratorEveryDay.fr"
 
 
 """
-EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
-EMAIL_HOST_USER = '2b919094998398'
-EMAIL_HOST_PASSWORD = 'fa0aa325523f6b'
-EMAIL_PORT = '2525'
-EMAIL_USE_TLS = True
-DOMAIN = "localhost:3000"
+EMAIL_BACKEND =django.core.mail.backends.smtp.EmailBackend
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT = 587
+EMAIL_HOST_USER =your_account@gmail.com
+EMAIL_HOST_PASSWORD =your account's password
 """
